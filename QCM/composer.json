@@ -12,25 +12,30 @@
         "symfony/debug-pack": "*",
         "symfony/expression-language": "^3.4",
         "symfony/flex": "^1.0",
-        "symfony/framework-bundle": "^3.4",
         "symfony/form": "^3.4",
+        "symfony/framework-bundle": "^3.4",
         "symfony/lts": "^3",
-        "symfony/orm-pack": "*",
-        "symfony/monolog-bundle": "^3.1",
+        "symfony/orm-pack": "^1.0",
         "symfony/process": "^3.4",
         "symfony/security-bundle": "^3.4",
         "symfony/serializer-pack": "*",
-        "symfony/validator": "^3.4",
         "symfony/swiftmailer-bundle": "^3.1",
+        "symfony/validator": "^3.4",
         "symfony/web-link": "^3.4",
         "symfony/webpack-encore-pack": "*",
         "symfony/yaml": "^3.4"
     },
     "require-dev": {
+        "easycorp/easy-log-handler": "^1.0.2",
+        "sensiolabs/security-checker": "^4.1",
+        "symfony/debug-bundle": "^3.3|^4.0",
         "symfony/dotenv": "^3.4",
-        "symfony/maker-bundle": "^1.0",
+        "symfony/maker-bundle": "^1.4",
+        "symfony/monolog-bundle": "^3.0",
         "symfony/phpunit-bridge": "^3.4",
-        "symfony/profiler-pack": "*"
+        "symfony/profiler-pack": "^1.0",
+        "symfony/var-dumper": "^3.3|^4.0",
+        "symfony/web-server-bundle": "^3.4"
     },
     "config": {
         "preferred-install": {
@@ -56,7 +61,8 @@
     "scripts": {
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
-            "assets:install --symlink --relative %PUBLIC_DIR%": "symfony-cmd"
+            "assets:install --symlink --relative %PUBLIC_DIR%": "symfony-cmd",
+            "security-checker security:check": "script"
         },
         "post-install-cmd": [
             "@auto-scripts"

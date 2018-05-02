@@ -28,9 +28,13 @@ class Suggestion
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Question", inversedBy="suggestions")
-     * @ORM\JoinColumn(nullable=false)
      */
-    private $question_id;
+    private $questionId;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\ResultQuestion", inversedBy="suggestionId")
+     */
+    private $resultQuestion;
 
     public function getId()
     {
@@ -63,12 +67,24 @@ class Suggestion
 
     public function getQuestionId(): ?Question
     {
-        return $this->question_id;
+        return $this->questionId;
     }
 
-    public function setQuestionId(?Question $question_id): self
+    public function setQuestionId(?Question $questionId): self
     {
-        $this->question_id = $question_id;
+        $this->questionId = $questionId;
+
+        return $this;
+    }
+
+    public function getResultQuestion(): ?ResultQuestion
+    {
+        return $this->resultQuestion;
+    }
+
+    public function setResultQuestion(?ResultQuestion $resultQuestion): self
+    {
+        $this->resultQuestion = $resultQuestion;
 
         return $this;
     }

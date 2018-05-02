@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\ResultQCM;
+use App\Entity\ResultQcm;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
- * @method ResultQCM|null find($id, $lockMode = null, $lockVersion = null)
- * @method ResultQCM|null findOneBy(array $criteria, array $orderBy = null)
- * @method ResultQCM[]    findAll()
- * @method ResultQCM[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method ResultQcm|null find($id, $lockMode = null, $lockVersion = null)
+ * @method ResultQcm|null findOneBy(array $criteria, array $orderBy = null)
+ * @method ResultQcm[]    findAll()
+ * @method ResultQcm[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ResultQCMRepository extends ServiceEntityRepository
+class ResultQcmRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {
-        parent::__construct($registry, ResultQCM::class);
+        parent::__construct($registry, ResultQcm::class);
     }
 
 //    /**
-//     * @return ResultQCM[] Returns an array of ResultQCM objects
+//     * @return ResultQcm[] Returns an array of ResultQcm objects
 //     */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class ResultQCMRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?ResultQCM
+    public function findOneBySomeField($value): ?ResultQcm
     {
         return $this->createQueryBuilder('r')
             ->andWhere('r.exampleField = :val')

@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -17,45 +19,69 @@ class ResultQuestion
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Suggestion", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="App\Entity\Suggestion", mappedBy="resultQuestion")
      */
-    private $suggestion_id;
+    private $suggestionId;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\ResultQCM", inversedBy="resultQuestions")
+     * @ORM\ManyToOne(targetEntity="App\Entity\ResultQcm", inversedBy="resultQuestions")
      */
-    private $result_qcm_id;
+    private $resultQcmId;
 
     /**
      * @ORM\Column(type="boolean")
      */
     private $given;
 
+    public function __construct()
+    {
+        $this->suggestionId = new ArrayCollection();
+    }
+
     public function getId()
     {
         return $this->id;
     }
 
-    public function getSuggestionId(): ?Suggestion
+    /**
+     * @return Collection|Suggestion[]
+     */
+    public function getSuggestionId(): Collection
     {
-        return $this->suggestion_id;
+        return $this->suggestionId;
     }
 
-    public function setSuggestionId(?Suggestion $suggestion_id): self
+    public function addSuggestionId(Suggestion $suggestionId): self
     {
-        $this->suggestion_id = $suggestion_id;
+        if (!$this->suggestionId->contains($suggestionId)) {
+            $this->suggestionId[] = $suggestionId;
+            $suggestionId->setResultQuestion($this);
+        }
 
         return $this;
     }
 
-    public function getResultQcmId(): ?ResultQCM
+    public function removeSuggestionId(Suggestion $suggestionId): self
     {
-        return $this->result_qcm_id;
+        if ($this->suggestionId->contains($suggestionId)) {
+            $this->suggestionId->removeElement($suggestionId);
+            // set the owning side to null (unless already changed)
+            if ($suggestionId->getResultQuestion() === $this) {
+                $suggestionId->setResultQuestion(null);
+            }
+        }
+
+        return $this;
     }
 
-    public function setResultQcmId(?ResultQCM $result_qcm_id): self
+    public function getResultQcmId(): ?ResultQcm
     {
-        $this->result_qcm_id = $result_qcm_id;
+        return $this->resultQcmId;
+    }
+
+    public function setResultQcmId(?ResultQcm $resultQcmId): self
+    {
+        $this->resultQcmId = $resultQcmId;
 
         return $this;
     }

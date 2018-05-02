@@ -30,12 +30,11 @@ class Question
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Quiz", inversedBy="questions")
-     * @ORM\JoinColumn(nullable=false)
      */
-    private $quiz_id;
+    private $quizId;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Suggestion", mappedBy="question_id", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\Suggestion", mappedBy="questionId")
      */
     private $suggestions;
 
@@ -75,12 +74,12 @@ class Question
 
     public function getQuizId(): ?Quiz
     {
-        return $this->quiz_id;
+        return $this->quizId;
     }
 
-    public function setQuizId(?Quiz $quiz_id): self
+    public function setQuizId(?Quiz $quizId): self
     {
-        $this->quiz_id = $quiz_id;
+        $this->quizId = $quizId;
 
         return $this;
     }

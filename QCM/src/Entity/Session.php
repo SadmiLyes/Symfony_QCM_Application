@@ -20,33 +20,38 @@ class Session
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="sessions")
-     * @ORM\JoinColumn(nullable=false)
      */
     private $author;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Group", inversedBy="sessions")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Quiz", inversedBy="sessions")
      */
-    private $group_id;
+    private $quizId;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Group", mappedBy="session")
+     */
+    private $groupId;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $date_session;
+    private $startDate;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Quiz", inversedBy="session", cascade={"persist", "remove"})
+     * @ORM\Column(type="datetime")
      */
-    private $quiz_id;
+    private $endTime;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\ResultQCM", mappedBy="session_id", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="App\Entity\ResultQcm", mappedBy="sessionId")
      */
-    private $resultQCM;
+    private $resultQcms;
 
     public function __construct()
     {
-        $this->group_id = new ArrayCollection();
+        $this->groupId = new ArrayCollection();
+        $this->resultQcms = new ArrayCollection();
     }
 
     public function getId()
@@ -66,18 +71,31 @@ class Session
         return $this;
     }
 
+    public function getQuizId(): ?Quiz
+    {
+        return $this->quizId;
+    }
+
+    public function setQuizId(?Quiz $quizId): self
+    {
+        $this->quizId = $quizId;
+
+        return $this;
+    }
+
     /**
      * @return Collection|Group[]
      */
     public function getGroupId(): Collection
     {
-        return $this->group_id;
+        return $this->groupId;
     }
 
     public function addGroupId(Group $groupId): self
     {
-        if (!$this->group_id->contains($groupId)) {
-            $this->group_id[] = $groupId;
+        if (!$this->groupId->contains($groupId)) {
+            $this->groupId[] = $groupId;
+            $groupId->setSession($this);
         }
 
         return $this;
@@ -85,50 +103,67 @@ class Session
 
     public function removeGroupId(Group $groupId): self
     {
-        if ($this->group_id->contains($groupId)) {
-            $this->group_id->removeElement($groupId);
+        if ($this->groupId->contains($groupId)) {
+            $this->groupId->removeElement($groupId);
+            // set the owning side to null (unless already changed)
+            if ($groupId->getSession() === $this) {
+                $groupId->setSession(null);
+            }
         }
 
         return $this;
     }
 
-    public function getDateSession(): ?\DateTimeInterface
+    public function getStartDate(): ?\DateTimeInterface
     {
-        return $this->date_session;
+        return $this->startDate;
     }
 
-    public function setDateSession(\DateTimeInterface $date_session): self
+    public function setStartDate(\DateTimeInterface $startDate): self
     {
-        $this->date_session = $date_session;
+        $this->startDate = $startDate;
 
         return $this;
     }
 
-    public function getQuizId(): ?Quiz
+    public function getEndTime(): ?\DateTimeInterface
     {
-        return $this->quiz_id;
+        return $this->endTime;
     }
 
-    public function setQuizId(?Quiz $quiz_id): self
+    public function setEndTime(\DateTimeInterface $endTime): self
     {
-        $this->quiz_id = $quiz_id;
+        $this->endTime = $endTime;
 
         return $this;
     }
 
-    public function getResultQCM(): ?ResultQCM
+    /**
+     * @return Collection|ResultQcm[]
+     */
+    public function getResultQcms(): Collection
     {
-        return $this->resultQCM;
+        return $this->resultQcms;
     }
 
-    public function setResultQCM(?ResultQCM $resultQCM): self
+    public function addResultQcm(ResultQcm $resultQcm): self
     {
-        $this->resultQCM = $resultQCM;
+        if (!$this->resultQcms->contains($resultQcm)) {
+            $this->resultQcms[] = $resultQcm;
+            $resultQcm->setSessionId($this);
+        }
 
-        // set (or unset) the owning side of the relation if necessary
-        $newSession_id = $resultQCM === null ? null : $this;
-        if ($newSession_id !== $resultQCM->getSessionId()) {
-            $resultQCM->setSessionId($newSession_id);
+        return $this;
+    }
+
+    public function removeResultQcm(ResultQcm $resultQcm): self
+    {
+        if ($this->resultQcms->contains($resultQcm)) {
+            $this->resultQcms->removeElement($resultQcm);
+            // set the owning side to null (unless already changed)
+            if ($resultQcm->getSessionId() === $this) {
+                $resultQcm->setSessionId(null);
+            }
         }
 
         return $this;

@@ -21,15 +21,15 @@ class User
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $first_name;
+    private $firstName;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $last_name;
+    private $lastName;
 
     /**
-     * @ORM\Column(type="date", nullable=true)
+     * @ORM\Column(type="date")
      */
     private $birthday;
 
@@ -44,40 +44,38 @@ class User
     private $email;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $gender;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\User", mappedBy="role_id", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="App\Entity\Role", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $role;
+    private $roleId;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Group", mappedBy="author", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\Group", mappedBy="author")
      */
     private $groups;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\ResultQCM", mappedBy="student_id", orphanRemoval=true)
-     */
-    private $resultQCMs;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Session", mappedBy="author", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\Session", mappedBy="author")
      */
     private $sessions;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\ResultQcm", mappedBy="studentId")
+     */
+    private $resultQcms;
 
     public function __construct()
     {
         $this->groups = new ArrayCollection();
-        $this->resultQCMs = new ArrayCollection();
         $this->sessions = new ArrayCollection();
+        $this->resultQcms = new ArrayCollection();
     }
 
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
     public function getId()
     {
         return $this->id;
@@ -85,24 +83,24 @@ class User
 
     public function getFirstName(): ?string
     {
-        return $this->first_name;
+        return $this->firstName;
     }
 
-    public function setFirstName(string $first_name): self
+    public function setFirstName(string $firstName): self
     {
-        $this->first_name = $first_name;
+        $this->firstName = $firstName;
 
         return $this;
     }
 
     public function getLastName(): ?string
     {
-        return $this->last_name;
+        return $this->lastName;
     }
 
-    public function setLastName(string $last_name): self
+    public function setLastName(string $lastName): self
     {
-        $this->last_name = $last_name;
+        $this->lastName = $lastName;
 
         return $this;
     }
@@ -112,7 +110,7 @@ class User
         return $this->birthday;
     }
 
-    public function setBirthday(?\DateTimeInterface $birthday): self
+    public function setBirthday(\DateTimeInterface $birthday): self
     {
         $this->birthday = $birthday;
 
@@ -148,26 +146,21 @@ class User
         return $this->gender;
     }
 
-    public function setGender(string $gender): self
+    public function setGender(?string $gender): self
     {
         $this->gender = $gender;
 
         return $this;
     }
 
-    public function getRole(): ?self
+    public function getRoleId(): ?Role
     {
-        return $this->role;
+        return $this->roleId;
     }
 
-    public function setRole(self $role): self
+    public function setRoleId(Role $roleId): self
     {
-        $this->role = $role;
-
-        // set the owning side of the relation if necessary
-        if ($this !== $role->getRoleId()) {
-            $role->setRoleId($this);
-        }
+        $this->roleId = $roleId;
 
         return $this;
     }
@@ -204,37 +197,6 @@ class User
     }
 
     /**
-     * @return Collection|ResultQCM[]
-     */
-    public function getResultQCMs(): Collection
-    {
-        return $this->resultQCMs;
-    }
-
-    public function addResultQCM(ResultQCM $resultQCM): self
-    {
-        if (!$this->resultQCMs->contains($resultQCM)) {
-            $this->resultQCMs[] = $resultQCM;
-            $resultQCM->setStudentId($this);
-        }
-
-        return $this;
-    }
-
-    public function removeResultQCM(ResultQCM $resultQCM): self
-    {
-        if ($this->resultQCMs->contains($resultQCM)) {
-            $this->resultQCMs->removeElement($resultQCM);
-            // set the owning side to null (unless already changed)
-            if ($resultQCM->getStudentId() === $this) {
-                $resultQCM->setStudentId(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
      * @return Collection|Session[]
      */
     public function getSessions(): Collection
@@ -259,6 +221,37 @@ class User
             // set the owning side to null (unless already changed)
             if ($session->getAuthor() === $this) {
                 $session->setAuthor(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ResultQcm[]
+     */
+    public function getResultQcms(): Collection
+    {
+        return $this->resultQcms;
+    }
+
+    public function addResultQcm(ResultQcm $resultQcm): self
+    {
+        if (!$this->resultQcms->contains($resultQcm)) {
+            $this->resultQcms[] = $resultQcm;
+            $resultQcm->setStudentId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeResultQcm(ResultQcm $resultQcm): self
+    {
+        if ($this->resultQcms->contains($resultQcm)) {
+            $this->resultQcms->removeElement($resultQcm);
+            // set the owning side to null (unless already changed)
+            if ($resultQcm->getStudentId() === $this) {
+                $resultQcm->setStudentId(null);
             }
         }
 

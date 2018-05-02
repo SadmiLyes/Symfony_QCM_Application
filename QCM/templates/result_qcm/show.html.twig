@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ResultQcm{% endblock %}
+
+{% block body %}
+    <h1>ResultQcm</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ result_qcm.id }}</td>
+            </tr>
+            <tr>
+                <th>Mark</th>
+                <td>{{ result_qcm.mark }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('result_qcm_index') }}">back to list</a>
+
+    <a href="{{ path('result_qcm_edit', {'id': result_qcm.id}) }}">edit</a>
+
+    {{ include('result_qcm/_delete_form.html.twig') }}
+{% endblock %}

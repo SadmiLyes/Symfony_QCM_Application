@@ -19,24 +19,24 @@ class Member
     private $id;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Group", inversedBy="members")
-     */
-    private $group_id;
-
-    /**
      * @ORM\OneToOne(targetEntity="App\Entity\User", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
-    private $user_id;
+    private $userId;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Group", inversedBy="members")
+     */
+    private $groupId;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private $confirmed;
+    private $isConfirmed;
 
     public function __construct()
     {
-        $this->group_id = new ArrayCollection();
+        $this->groupId = new ArrayCollection();
     }
 
     public function getId()
@@ -44,18 +44,30 @@ class Member
         return $this->id;
     }
 
+    public function getUserId(): ?User
+    {
+        return $this->userId;
+    }
+
+    public function setUserId(User $userId): self
+    {
+        $this->userId = $userId;
+
+        return $this;
+    }
+
     /**
      * @return Collection|Group[]
      */
     public function getGroupId(): Collection
     {
-        return $this->group_id;
+        return $this->groupId;
     }
 
     public function addGroupId(Group $groupId): self
     {
-        if (!$this->group_id->contains($groupId)) {
-            $this->group_id[] = $groupId;
+        if (!$this->groupId->contains($groupId)) {
+            $this->groupId[] = $groupId;
         }
 
         return $this;
@@ -63,33 +75,21 @@ class Member
 
     public function removeGroupId(Group $groupId): self
     {
-        if ($this->group_id->contains($groupId)) {
-            $this->group_id->removeElement($groupId);
+        if ($this->groupId->contains($groupId)) {
+            $this->groupId->removeElement($groupId);
         }
 
         return $this;
     }
 
-    public function getUserId(): ?User
+    public function getIsConfirmed(): ?bool
     {
-        return $this->user_id;
+        return $this->isConfirmed;
     }
 
-    public function setUserId(User $user_id): self
+    public function setIsConfirmed(bool $isConfirmed): self
     {
-        $this->user_id = $user_id;
-
-        return $this;
-    }
-
-    public function getConfirmed(): ?bool
-    {
-        return $this->confirmed;
-    }
-
-    public function setConfirmed(bool $confirmed): self
-    {
-        $this->confirmed = $confirmed;
+        $this->isConfirmed = $isConfirmed;
 
         return $this;
     }

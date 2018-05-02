@@ -24,38 +24,44 @@ class Quiz
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
     private $description;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $max_points;
+    private $maxPoints;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $right_amount_point;
+    private $rightAmountPoints;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $wrong_amount_point;
+    private $wrongAmountPoints;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Question", mappedBy="quiz_id", orphanRemoval=true)
+     * @ORM\Column(type="integer")
+     */
+    private $neutralAmountPoints;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Question", mappedBy="quizId")
      */
     private $questions;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Session", mappedBy="quiz_id", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="App\Entity\Session", mappedBy="quizId")
      */
-    private $session;
+    private $sessions;
 
     public function __construct()
     {
         $this->questions = new ArrayCollection();
+        $this->sessions = new ArrayCollection();
     }
 
     public function getId()
@@ -80,7 +86,7 @@ class Quiz
         return $this->description;
     }
 
-    public function setDescription(?string $description): self
+    public function setDescription(string $description): self
     {
         $this->description = $description;
 
@@ -89,36 +95,48 @@ class Quiz
 
     public function getMaxPoints(): ?int
     {
-        return $this->max_points;
+        return $this->maxPoints;
     }
 
-    public function setMaxPoints(int $max_points): self
+    public function setMaxPoints(int $maxPoints): self
     {
-        $this->max_points = $max_points;
+        $this->maxPoints = $maxPoints;
 
         return $this;
     }
 
-    public function getRightAmountPoint(): ?int
+    public function getRightAmountPoints(): ?int
     {
-        return $this->right_amount_point;
+        return $this->rightAmountPoints;
     }
 
-    public function setRightAmountPoint(int $right_amount_point): self
+    public function setRightAmountPoints(int $rightAmountPoints): self
     {
-        $this->right_amount_point = $right_amount_point;
+        $this->rightAmountPoints = $rightAmountPoints;
 
         return $this;
     }
 
-    public function getWrongAmountPoint(): ?int
+    public function getWrongAmountPoints(): ?int
     {
-        return $this->wrong_amount_point;
+        return $this->wrongAmountPoints;
     }
 
-    public function setWrongAmountPoint(int $wrong_amount_point): self
+    public function setWrongAmountPoints(int $wrongAmountPoints): self
     {
-        $this->wrong_amount_point = $wrong_amount_point;
+        $this->wrongAmountPoints = $wrongAmountPoints;
+
+        return $this;
+    }
+
+    public function getNeutralAmountPoints(): ?int
+    {
+        return $this->neutralAmountPoints;
+    }
+
+    public function setNeutralAmountPoints(int $neutralAmountPoints): self
+    {
+        $this->neutralAmountPoints = $neutralAmountPoints;
 
         return $this;
     }
@@ -154,19 +172,32 @@ class Quiz
         return $this;
     }
 
-    public function getSession(): ?Session
+    /**
+     * @return Collection|Session[]
+     */
+    public function getSessions(): Collection
     {
-        return $this->session;
+        return $this->sessions;
     }
 
-    public function setSession(?Session $session): self
+    public function addSession(Session $session): self
     {
-        $this->session = $session;
+        if (!$this->sessions->contains($session)) {
+            $this->sessions[] = $session;
+            $session->setQuizId($this);
+        }
 
-        // set (or unset) the owning side of the relation if necessary
-        $newQuiz_id = $session === null ? null : $this;
-        if ($newQuiz_id !== $session->getQuizId()) {
-            $session->setQuizId($newQuiz_id);
+        return $this;
+    }
+
+    public function removeSession(Session $session): self
+    {
+        if ($this->sessions->contains($session)) {
+            $this->sessions->removeElement($session);
+            // set the owning side to null (unless already changed)
+            if ($session->getQuizId() === $this) {
+                $session->setQuizId(null);
+            }
         }
 
         return $this;

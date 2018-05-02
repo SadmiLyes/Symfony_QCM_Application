@@ -20,7 +20,6 @@ class Group
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="groups")
-     * @ORM\JoinColumn(nullable=false)
      */
     private $author;
 
@@ -30,19 +29,18 @@ class Group
     private $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Member", mappedBy="group_id")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Member", mappedBy="groupId")
      */
     private $members;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Session", mappedBy="group_id")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Session", inversedBy="groupId")
      */
-    private $sessions;
+    private $session;
 
     public function __construct()
     {
         $this->members = new ArrayCollection();
-        $this->sessions = new ArrayCollection();
     }
 
     public function getId()
@@ -102,30 +100,14 @@ class Group
         return $this;
     }
 
-    /**
-     * @return Collection|Session[]
-     */
-    public function getSessions(): Collection
+    public function getSession(): ?Session
     {
-        return $this->sessions;
+        return $this->session;
     }
 
-    public function addSession(Session $session): self
+    public function setSession(?Session $session): self
     {
-        if (!$this->sessions->contains($session)) {
-            $this->sessions[] = $session;
-            $session->addGroupId($this);
-        }
-
-        return $this;
-    }
-
-    public function removeSession(Session $session): self
-    {
-        if ($this->sessions->contains($session)) {
-            $this->sessions->removeElement($session);
-            $session->removeGroupId($this);
-        }
+        $this->session = $session;
 
         return $this;
     }

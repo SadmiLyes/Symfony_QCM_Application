@@ -7,9 +7,9 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\ResultQCMRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\ResultQcmRepository")
  */
-class ResultQCM
+class ResultQcm
 {
     /**
      * @ORM\Id()
@@ -19,28 +19,27 @@ class ResultQCM
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="resultQCMs")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $student_id;
-
-    /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Quiz", cascade={"persist", "remove"})
-     */
-    private $quiz_id;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="float")
      */
     private $mark;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Session", inversedBy="resultQCM", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="resultQcms")
      */
-    private $session_id;
+    private $studentId;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\ResultQuestion", mappedBy="result_qcm_id")
+     * @ORM\OneToOne(targetEntity="App\Entity\Quiz", cascade={"persist", "remove"})
+     */
+    private $quizId;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Session", inversedBy="resultQcms")
+     */
+    private $sessionId;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\ResultQuestion", mappedBy="resultQcmId")
      */
     private $resultQuestions;
 
@@ -54,50 +53,50 @@ class ResultQCM
         return $this->id;
     }
 
-    public function getStudentId(): ?User
-    {
-        return $this->student_id;
-    }
-
-    public function setStudentId(?User $student_id): self
-    {
-        $this->student_id = $student_id;
-
-        return $this;
-    }
-
-    public function getQuizId(): ?Quiz
-    {
-        return $this->quiz_id;
-    }
-
-    public function setQuizId(?Quiz $quiz_id): self
-    {
-        $this->quiz_id = $quiz_id;
-
-        return $this;
-    }
-
-    public function getMark(): ?int
+    public function getMark(): ?float
     {
         return $this->mark;
     }
 
-    public function setMark(?int $mark): self
+    public function setMark(float $mark): self
     {
         $this->mark = $mark;
 
         return $this;
     }
 
-    public function getSessionId(): ?Session
+    public function getStudentId(): ?User
     {
-        return $this->session_id;
+        return $this->studentId;
     }
 
-    public function setSessionId(?Session $session_id): self
+    public function setStudentId(?User $studentId): self
     {
-        $this->session_id = $session_id;
+        $this->studentId = $studentId;
+
+        return $this;
+    }
+
+    public function getQuizId(): ?Quiz
+    {
+        return $this->quizId;
+    }
+
+    public function setQuizId(?Quiz $quizId): self
+    {
+        $this->quizId = $quizId;
+
+        return $this;
+    }
+
+    public function getSessionId(): ?Session
+    {
+        return $this->sessionId;
+    }
+
+    public function setSessionId(?Session $sessionId): self
+    {
+        $this->sessionId = $sessionId;
 
         return $this;
     }

@@ -29,9 +29,9 @@ class Session
     private $quizId;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Group", mappedBy="session")
+     * @ORM\OneToMany(targetEntity="ClassRoom", mappedBy="session")
      */
-    private $groupId;
+    private $ClassRoomId;
 
     /**
      * @ORM\Column(type="datetime")
@@ -50,7 +50,7 @@ class Session
 
     public function __construct()
     {
-        $this->groupId = new ArrayCollection();
+        $this->ClassRoomId = new ArrayCollection();
         $this->resultQcms = new ArrayCollection();
     }
 
@@ -84,30 +84,30 @@ class Session
     }
 
     /**
-     * @return Collection|Group[]
+     * @return Collection|ClassRoom[]
      */
-    public function getGroupId(): Collection
+    public function getClassRoomId(): Collection
     {
-        return $this->groupId;
+        return $this->ClassRoomId;
     }
 
-    public function addGroupId(Group $groupId): self
+    public function addClassRoomId(ClassRoom $ClassRoomId): self
     {
-        if (!$this->groupId->contains($groupId)) {
-            $this->groupId[] = $groupId;
-            $groupId->setSession($this);
+        if (!$this->ClassRoomId->contains($ClassRoomId)) {
+            $this->ClassRoomId[] = $ClassRoomId;
+            $ClassRoomId->setSession($this);
         }
 
         return $this;
     }
 
-    public function removeGroupId(Group $groupId): self
+    public function removeClassRoomId(ClassRoom $ClassRoomId): self
     {
-        if ($this->groupId->contains($groupId)) {
-            $this->groupId->removeElement($groupId);
+        if ($this->ClassRoomId->contains($ClassRoomId)) {
+            $this->ClassRoomId->removeElement($ClassRoomId);
             // set the owning side to null (unless already changed)
-            if ($groupId->getSession() === $this) {
-                $groupId->setSession(null);
+            if ($ClassRoomId->getSession() === $this) {
+                $ClassRoomId->setSession(null);
             }
         }
 

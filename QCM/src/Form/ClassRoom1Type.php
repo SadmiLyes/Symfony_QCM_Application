@@ -2,26 +2,27 @@
 
 namespace App\Form;
 
-use App\Entity\Member;
+use App\Entity\ClassRoom;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class MemberType extends AbstractType
+class ClassRoom1Type extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('isConfirmed')
-            ->add('userId')
-            ->add('ClassRoomId')
+            ->add('name')
+            ->add('author')
+            ->add('members')
+            ->add('session')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Member::class,
+            'data_class' => ClassRoom::class,
         ]);
     }
 }

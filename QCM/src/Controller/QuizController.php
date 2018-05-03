@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Quiz;
-use App\Form\Quiz1Type;
+use App\Form\Quiz3Type;
 use App\Repository\QuizRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -29,7 +29,7 @@ class QuizController extends Controller
     public function new(Request $request): Response
     {
         $quiz = new Quiz();
-        $form = $this->createForm(Quiz1Type::class, $quiz);
+        $form = $this->createForm(Quiz3Type::class, $quiz);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -59,7 +59,7 @@ class QuizController extends Controller
      */
     public function edit(Request $request, Quiz $quiz): Response
     {
-        $form = $this->createForm(Quiz1Type::class, $quiz);
+        $form = $this->createForm(Quiz3Type::class, $quiz);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

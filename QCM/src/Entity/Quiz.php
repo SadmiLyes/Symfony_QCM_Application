@@ -58,6 +58,11 @@ class Quiz
      */
     private $sessions;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="quizzes")
+     */
+    private $author;
+
     public function __construct()
     {
         $this->questions = new ArrayCollection();
@@ -199,6 +204,18 @@ class Quiz
                 $session->setQuizId(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getAuthor(): ?User
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(?User $author): self
+    {
+        $this->author = $author;
 
         return $this;
     }

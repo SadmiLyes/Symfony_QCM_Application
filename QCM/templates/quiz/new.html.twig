@@ -3,9 +3,17 @@
 {% block title %}New Quiz{% endblock %}
 
 {% block body %}
-    <h1>Create new Quiz</h1>
-
-    {{ include('quiz/_form.html.twig') }}
-
-    <a href="{{ path('quiz_index') }}">back to list</a>
+    <div class="container mt-4">
+        <div class="col-md-11 mx-auto">
+            <div class="card " >
+                <div class="card-body">
+                    <h3 class="card-title text-center text-secondary">New Quiz :</h3>
+                    <hr>
+                        {{ include('quiz/_form.html.twig') }}
+                    <hr>
+                    <a href="{{ path('quiz_index') }}" class="card-link btn btn-danger">back to list</a>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

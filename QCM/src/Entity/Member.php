@@ -25,9 +25,9 @@ class Member
     private $userId;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Group", inversedBy="members")
+     * @ORM\ManyToMany(targetEntity="ClassRoom", inversedBy="members")
      */
-    private $groupId;
+    private $ClassRoomId;
 
     /**
      * @ORM\Column(type="boolean")
@@ -36,7 +36,7 @@ class Member
 
     public function __construct()
     {
-        $this->groupId = new ArrayCollection();
+        $this->ClassRoomId = new ArrayCollection();
     }
 
     public function getId()
@@ -57,26 +57,26 @@ class Member
     }
 
     /**
-     * @return Collection|Group[]
+     * @return Collection|ClassRoom[]
      */
-    public function getGroupId(): Collection
+    public function getClassRoomId(): Collection
     {
-        return $this->groupId;
+        return $this->ClassRoomId;
     }
 
-    public function addGroupId(Group $groupId): self
+    public function addClassRoomId(ClassRoom $ClassRoomId): self
     {
-        if (!$this->groupId->contains($groupId)) {
-            $this->groupId[] = $groupId;
+        if (!$this->ClassRoomId->contains($ClassRoomId)) {
+            $this->ClassRoomId[] = $ClassRoomId;
         }
 
         return $this;
     }
 
-    public function removeGroupId(Group $groupId): self
+    public function removeClassRoomId(ClassRoom $ClassRoomId): self
     {
-        if ($this->groupId->contains($groupId)) {
-            $this->groupId->removeElement($groupId);
+        if ($this->ClassRoomId->contains($ClassRoomId)) {
+            $this->ClassRoomId->removeElement($ClassRoomId);
         }
 
         return $this;

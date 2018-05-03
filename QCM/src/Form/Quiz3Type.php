@@ -2,27 +2,29 @@
 
 namespace App\Form;
 
-use App\Entity\Group;
+use App\Entity\Quiz;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class GroupType extends AbstractType
+class Quiz3Type extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('name')
-            ->add('author')
-            ->add('members')
-            ->add('session')
+            ->add('description')
+            ->add('maxPoints')
+            ->add('rightAmountPoints')
+            ->add('wrongAmountPoints')
+            ->add('neutralAmountPoints')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Group::class,
+            'data_class' => Quiz::class,
         ]);
     }
 }

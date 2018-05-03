@@ -2,26 +2,30 @@
 
 namespace App\Form;
 
-use App\Entity\Member;
+use App\Entity\Quiz;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class MemberType extends AbstractType
+class Quiz2Type extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('isConfirmed')
-            ->add('userId')
-            ->add('ClassRoomId')
+            ->add('name')
+            ->add('description')
+            ->add('maxPoints')
+            ->add('rightAmountPoints')
+            ->add('wrongAmountPoints')
+            ->add('neutralAmountPoints')
+            ->add('author')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Member::class,
+            'data_class' => Quiz::class,
         ]);
     }
 }

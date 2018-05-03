@@ -55,9 +55,9 @@ class User
     private $roleId;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Group", mappedBy="author")
+     * @ORM\OneToMany(targetEntity="ClassRoom", mappedBy="author")
      */
-    private $groups;
+    private $ClassRooms;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Session", mappedBy="author")
@@ -69,11 +69,17 @@ class User
      */
     private $resultQcms;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Quiz", mappedBy="author")
+     */
+    private $quizzes;
+
     public function __construct()
     {
-        $this->groups = new ArrayCollection();
+        $this->ClassRooms = new ArrayCollection();
         $this->sessions = new ArrayCollection();
         $this->resultQcms = new ArrayCollection();
+        $this->quizzes = new ArrayCollection();
     }
 
     public function getId()
@@ -166,30 +172,30 @@ class User
     }
 
     /**
-     * @return Collection|Group[]
+     * @return Collection|ClassRoom[]
      */
-    public function getGroups(): Collection
+    public function getClassRooms(): Collection
     {
-        return $this->groups;
+        return $this->ClassRooms;
     }
 
-    public function addGroup(Group $group): self
+    public function addClassRoom(ClassRoom $ClassRoom): self
     {
-        if (!$this->groups->contains($group)) {
-            $this->groups[] = $group;
-            $group->setAuthor($this);
+        if (!$this->ClassRooms->contains($ClassRoom)) {
+            $this->ClassRooms[] = $ClassRoom;
+            $ClassRoom->setAuthor($this);
         }
 
         return $this;
     }
 
-    public function removeGroup(Group $group): self
+    public function removeClassRoom(ClassRoom $ClassRoom): self
     {
-        if ($this->groups->contains($group)) {
-            $this->groups->removeElement($group);
+        if ($this->ClassRooms->contains($ClassRoom)) {
+            $this->ClassRooms->removeElement($ClassRoom);
             // set the owning side to null (unless already changed)
-            if ($group->getAuthor() === $this) {
-                $group->setAuthor(null);
+            if ($ClassRoom->getAuthor() === $this) {
+                $ClassRoom->setAuthor(null);
             }
         }
 
@@ -252,6 +258,37 @@ class User
             // set the owning side to null (unless already changed)
             if ($resultQcm->getStudentId() === $this) {
                 $resultQcm->setStudentId(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Quiz[]
+     */
+    public function getQuizzes(): Collection
+    {
+        return $this->quizzes;
+    }
+
+    public function addQuiz(Quiz $quiz): self
+    {
+        if (!$this->quizzes->contains($quiz)) {
+            $this->quizzes[] = $quiz;
+            $quiz->setAuthor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeQuiz(Quiz $quiz): self
+    {
+        if ($this->quizzes->contains($quiz)) {
+            $this->quizzes->removeElement($quiz);
+            // set the owning side to null (unless already changed)
+            if ($quiz->getAuthor() === $this) {
+                $quiz->setAuthor(null);
             }
         }
 

@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Group index{% endblock %}
+{% block title %}ClassRoom index{% endblock %}
 
 {% block body %}
-    <h1>Group index</h1>
+    <h1>ClassRoom index</h1>
 
     <table class="table">
         <thead>
@@ -14,13 +14,13 @@
             </tr>
         </thead>
         <tbody>
-        {% for group in groups %}
+        {% for class_room in class_rooms %}
             <tr>
-                <td>{{ group.id }}</td>
-                <td>{{ group.name }}</td>
+                <td>{{ class_room.id }}</td>
+                <td>{{ class_room.name }}</td>
                 <td>
-                    <a href="{{ path('group_show', {'id': group.id}) }}">show</a>
-                    <a href="{{ path('group_edit', {'id': group.id}) }}">edit</a>
+                    <a href="{{ path('class_room_show', {'id': class_room.id}) }}">show</a>
+                    <a href="{{ path('class_room_edit', {'id': class_room.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -31,5 +31,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('group_new') }}">Create new</a>
+    <a href="{{ path('class_room_new') }}">Create new</a>
 {% endblock %}

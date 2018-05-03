@@ -7,9 +7,9 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\GroupRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\ClassRoomRepository")
  */
-class Group
+class ClassRoom
 {
     /**
      * @ORM\Id()
@@ -19,7 +19,7 @@ class Group
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="groups")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="ClassRooms")
      */
     private $author;
 
@@ -29,12 +29,12 @@ class Group
     private $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Member", mappedBy="groupId")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Member", mappedBy="ClassRoomId")
      */
     private $members;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Session", inversedBy="groupId")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Session", inversedBy="ClassRoomId")
      */
     private $session;
 
@@ -84,7 +84,7 @@ class Group
     {
         if (!$this->members->contains($member)) {
             $this->members[] = $member;
-            $member->addGroupId($this);
+            $member->addClassRoomId($this);
         }
 
         return $this;
@@ -94,7 +94,7 @@ class Group
     {
         if ($this->members->contains($member)) {
             $this->members->removeElement($member);
-            $member->removeGroupId($this);
+            $member->removeClassRoomId($this);
         }
 
         return $this;

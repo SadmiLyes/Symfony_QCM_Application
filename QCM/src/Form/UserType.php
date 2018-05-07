@@ -18,7 +18,8 @@ class UserType extends AbstractType
             ->add('address')
             ->add('email')
             ->add('gender')
-            ->add('roleId')
+            ->add('role')
+            ->add('resultQcm')
         ;
     }
 

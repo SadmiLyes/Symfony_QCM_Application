@@ -21,6 +21,11 @@ class Role
      */
     private $name;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\User", mappedBy="role", cascade={"persist", "remove"})
+     */
+    private $user;
+
     public function getId()
     {
         return $this->id;
@@ -34,6 +39,26 @@ class Role
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+    public function __toString() {
+        return $this->name;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(User $user): self
+    {
+        $this->user = $user;
+
+        // set the owning side of the relation if necessary
+        if ($this !== $user->getRole()) {
+            $user->setRole($this);
+        }
 
         return $this;
     }

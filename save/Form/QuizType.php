@@ -7,17 +7,17 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class Quiz3Type extends AbstractType
+class QuizType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('name')
             ->add('description')
-            ->add('maxPoints')
-            ->add('rightAmountPoints')
-            ->add('wrongAmountPoints')
-            ->add('neutralAmountPoints')
+            ->add('max_points')
+            ->add('right_amount_point')
+            ->add('wrong_amount_point')
+            ->add('session')
         ;
     }
 

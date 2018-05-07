@@ -44,42 +44,35 @@ class User
     private $email;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
     private $gender;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Role", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="App\Entity\Role", inversedBy="user", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
-    private $roleId;
+    private $role;
 
     /**
-     * @ORM\OneToMany(targetEntity="ClassRoom", mappedBy="author")
+     * @ORM\OneToMany(targetEntity="App\Entity\ClassRoom", mappedBy="author", orphanRemoval=true)
      */
-    private $ClassRooms;
+    private $classRooms;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Session", mappedBy="author")
+     * @ORM\OneToMany(targetEntity="App\Entity\Session", mappedBy="author", orphanRemoval=true)
      */
     private $sessions;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\ResultQcm", mappedBy="studentId")
+     * @ORM\OneToOne(targetEntity="App\Entity\ResultQcm", mappedBy="student", cascade={"persist", "remove"})
      */
-    private $resultQcms;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Quiz", mappedBy="author")
-     */
-    private $quizzes;
+    private $resultQcm;
 
     public function __construct()
     {
-        $this->ClassRooms = new ArrayCollection();
+        $this->classRooms = new ArrayCollection();
         $this->sessions = new ArrayCollection();
-        $this->resultQcms = new ArrayCollection();
-        $this->quizzes = new ArrayCollection();
     }
 
     public function getId()
@@ -152,21 +145,21 @@ class User
         return $this->gender;
     }
 
-    public function setGender(?string $gender): self
+    public function setGender(string $gender): self
     {
         $this->gender = $gender;
 
         return $this;
     }
 
-    public function getRoleId(): ?Role
+    public function getRole(): ?Role
     {
-        return $this->roleId;
+        return $this->role;
     }
 
-    public function setRoleId(Role $roleId): self
+    public function setRole(Role $role): self
     {
-        $this->roleId = $roleId;
+        $this->role = $role;
 
         return $this;
     }
@@ -176,26 +169,26 @@ class User
      */
     public function getClassRooms(): Collection
     {
-        return $this->ClassRooms;
+        return $this->classRooms;
     }
 
-    public function addClassRoom(ClassRoom $ClassRoom): self
+    public function addClassRoom(ClassRoom $classRoom): self
     {
-        if (!$this->ClassRooms->contains($ClassRoom)) {
-            $this->ClassRooms[] = $ClassRoom;
-            $ClassRoom->setAuthor($this);
+        if (!$this->classRooms->contains($classRoom)) {
+            $this->classRooms[] = $classRoom;
+            $classRoom->setAuthor($this);
         }
 
         return $this;
     }
 
-    public function removeClassRoom(ClassRoom $ClassRoom): self
+    public function removeClassRoom(ClassRoom $classRoom): self
     {
-        if ($this->ClassRooms->contains($ClassRoom)) {
-            $this->ClassRooms->removeElement($ClassRoom);
+        if ($this->classRooms->contains($classRoom)) {
+            $this->classRooms->removeElement($classRoom);
             // set the owning side to null (unless already changed)
-            if ($ClassRoom->getAuthor() === $this) {
-                $ClassRoom->setAuthor(null);
+            if ($classRoom->getAuthor() === $this) {
+                $classRoom->setAuthor(null);
             }
         }
 
@@ -233,63 +226,19 @@ class User
         return $this;
     }
 
-    /**
-     * @return Collection|ResultQcm[]
-     */
-    public function getResultQcms(): Collection
+    public function getResultQcm(): ?ResultQcm
     {
-        return $this->resultQcms;
+        return $this->resultQcm;
     }
 
-    public function addResultQcm(ResultQcm $resultQcm): self
+    public function setResultQcm(?ResultQcm $resultQcm): self
     {
-        if (!$this->resultQcms->contains($resultQcm)) {
-            $this->resultQcms[] = $resultQcm;
-            $resultQcm->setStudentId($this);
-        }
+        $this->resultQcm = $resultQcm;
 
-        return $this;
-    }
-
-    public function removeResultQcm(ResultQcm $resultQcm): self
-    {
-        if ($this->resultQcms->contains($resultQcm)) {
-            $this->resultQcms->removeElement($resultQcm);
-            // set the owning side to null (unless already changed)
-            if ($resultQcm->getStudentId() === $this) {
-                $resultQcm->setStudentId(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Quiz[]
-     */
-    public function getQuizzes(): Collection
-    {
-        return $this->quizzes;
-    }
-
-    public function addQuiz(Quiz $quiz): self
-    {
-        if (!$this->quizzes->contains($quiz)) {
-            $this->quizzes[] = $quiz;
-            $quiz->setAuthor($this);
-        }
-
-        return $this;
-    }
-
-    public function removeQuiz(Quiz $quiz): self
-    {
-        if ($this->quizzes->contains($quiz)) {
-            $this->quizzes->removeElement($quiz);
-            // set the owning side to null (unless already changed)
-            if ($quiz->getAuthor() === $this) {
-                $quiz->setAuthor(null);
-            }
+        // set (or unset) the owning side of the relation if necessary
+        $newStudent = $resultQcm === null ? null : $this;
+        if ($newStudent !== $resultQcm->getStudent()) {
+            $resultQcm->setStudent($newStudent);
         }
 
         return $this;

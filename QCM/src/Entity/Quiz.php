@@ -49,19 +49,19 @@ class Quiz
     private $neutralAmountPoints;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Question", mappedBy="quizId")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="quizzes")
+     */
+    private $author;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Question", mappedBy="quiz", orphanRemoval=true)
      */
     private $questions;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Session", mappedBy="quizId")
+     * @ORM\OneToMany(targetEntity="App\Entity\Session", mappedBy="quiz")
      */
     private $sessions;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="quizzes")
-     */
-    private $author;
 
     public function __construct()
     {
@@ -146,6 +146,26 @@ class Quiz
         return $this;
     }
 
+
+
+
+
+    public function getAuthor(): ?User
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(?User $author): self
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    public function __toString(){
+        return $this->getName();
+    }
+
     /**
      * @return Collection|Question[]
      */
@@ -158,7 +178,7 @@ class Quiz
     {
         if (!$this->questions->contains($question)) {
             $this->questions[] = $question;
-            $question->setQuizId($this);
+            $question->setQuiz($this);
         }
 
         return $this;
@@ -169,8 +189,8 @@ class Quiz
         if ($this->questions->contains($question)) {
             $this->questions->removeElement($question);
             // set the owning side to null (unless already changed)
-            if ($question->getQuizId() === $this) {
-                $question->setQuizId(null);
+            if ($question->getQuiz() === $this) {
+                $question->setQuiz(null);
             }
         }
 
@@ -189,7 +209,7 @@ class Quiz
     {
         if (!$this->sessions->contains($session)) {
             $this->sessions[] = $session;
-            $session->setQuizId($this);
+            $session->setQuiz($this);
         }
 
         return $this;
@@ -200,22 +220,10 @@ class Quiz
         if ($this->sessions->contains($session)) {
             $this->sessions->removeElement($session);
             // set the owning side to null (unless already changed)
-            if ($session->getQuizId() === $this) {
-                $session->setQuizId(null);
+            if ($session->getQuiz() === $this) {
+                $session->setQuiz(null);
             }
         }
-
-        return $this;
-    }
-
-    public function getAuthor(): ?User
-    {
-        return $this->author;
-    }
-
-    public function setAuthor(?User $author): self
-    {
-        $this->author = $author;
 
         return $this;
     }

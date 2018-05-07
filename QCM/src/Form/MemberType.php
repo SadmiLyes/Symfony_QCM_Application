@@ -13,8 +13,8 @@ class MemberType extends AbstractType
     {
         $builder
             ->add('isConfirmed')
-            ->add('userId')
-            ->add('ClassRoomId')
+            ->add('classRoom')
+            ->add('student')
         ;
     }
 

@@ -13,9 +13,11 @@ class SessionType extends AbstractType
     {
         $builder
             ->add('startDate')
-            ->add('endTime')
+            ->add('endDate')
             ->add('author')
-            ->add('quizId')
+            ->add('classRoom')
+            ->add('quiz')
+            ->add('resultQcm')
         ;
     }
 

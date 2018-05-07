@@ -10,7 +10,7 @@
             <tr>
                 <th>Id</th>
                 <th>Content</th>
-                <th>IsRight</th>
+                <th>Answer</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -19,7 +19,7 @@
             <tr>
                 <td>{{ suggestion.id }}</td>
                 <td>{{ suggestion.content }}</td>
-                <td>{{ suggestion.isRight ? 'Yes' : 'No' }}</td>
+                <td>{{ suggestion.answer ? 'Yes' : 'No' }}</td>
                 <td>
                     <a href="{{ path('suggestion_show', {'id': suggestion.id}) }}">show</a>
                     <a href="{{ path('suggestion_edit', {'id': suggestion.id}) }}">edit</a>

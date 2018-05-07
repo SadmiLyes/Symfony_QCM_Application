@@ -19,27 +19,22 @@ class ResultQcm
     private $id;
 
     /**
-     * @ORM\Column(type="float")
+     * @ORM\OneToOne(targetEntity="App\Entity\User", inversedBy="resultQcm", cascade={"persist", "remove"})
+     */
+    private $student;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $mark;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="resultQcms")
+     * @ORM\OneToOne(targetEntity="App\Entity\Session", inversedBy="resultQcm", cascade={"persist", "remove"})
      */
-    private $studentId;
+    private $session;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Quiz", cascade={"persist", "remove"})
-     */
-    private $quizId;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Session", inversedBy="resultQcms")
-     */
-    private $sessionId;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\ResultQuestion", mappedBy="resultQcmId")
+     * @ORM\OneToMany(targetEntity="App\Entity\ResultQuestion", mappedBy="resultQuestion")
      */
     private $resultQuestions;
 
@@ -53,50 +48,38 @@ class ResultQcm
         return $this->id;
     }
 
-    public function getMark(): ?float
+    public function getStudent(): ?User
+    {
+        return $this->student;
+    }
+
+    public function setStudent(?User $student): self
+    {
+        $this->student = $student;
+
+        return $this;
+    }
+
+    public function getMark(): ?int
     {
         return $this->mark;
     }
 
-    public function setMark(float $mark): self
+    public function setMark(?int $mark): self
     {
         $this->mark = $mark;
 
         return $this;
     }
 
-    public function getStudentId(): ?User
+    public function getSession(): ?Session
     {
-        return $this->studentId;
+        return $this->session;
     }
 
-    public function setStudentId(?User $studentId): self
+    public function setSession(?Session $session): self
     {
-        $this->studentId = $studentId;
-
-        return $this;
-    }
-
-    public function getQuizId(): ?Quiz
-    {
-        return $this->quizId;
-    }
-
-    public function setQuizId(?Quiz $quizId): self
-    {
-        $this->quizId = $quizId;
-
-        return $this;
-    }
-
-    public function getSessionId(): ?Session
-    {
-        return $this->sessionId;
-    }
-
-    public function setSessionId(?Session $sessionId): self
-    {
-        $this->sessionId = $sessionId;
+        $this->session = $session;
 
         return $this;
     }
@@ -113,7 +96,7 @@ class ResultQcm
     {
         if (!$this->resultQuestions->contains($resultQuestion)) {
             $this->resultQuestions[] = $resultQuestion;
-            $resultQuestion->setResultQcmId($this);
+            $resultQuestion->setResultQuestion($this);
         }
 
         return $this;
@@ -124,8 +107,8 @@ class ResultQcm
         if ($this->resultQuestions->contains($resultQuestion)) {
             $this->resultQuestions->removeElement($resultQuestion);
             // set the owning side to null (unless already changed)
-            if ($resultQuestion->getResultQcmId() === $this) {
-                $resultQuestion->setResultQcmId(null);
+            if ($resultQuestion->getResultQuestion() === $this) {
+                $resultQuestion->setResultQuestion(null);
             }
         }
 

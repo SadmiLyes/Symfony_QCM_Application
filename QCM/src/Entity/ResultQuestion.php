@@ -2,8 +2,6 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -19,69 +17,45 @@ class ResultQuestion
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Suggestion", mappedBy="resultQuestion")
+     * @ORM\OneToOne(targetEntity="App\Entity\Suggestion", cascade={"persist", "remove"})
      */
-    private $suggestionId;
+    private $suggestion;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\ResultQcm", inversedBy="resultQuestions")
      */
-    private $resultQcmId;
+    private $resultQuestion;
 
     /**
      * @ORM\Column(type="boolean")
      */
     private $given;
 
-    public function __construct()
-    {
-        $this->suggestionId = new ArrayCollection();
-    }
-
     public function getId()
     {
         return $this->id;
     }
 
-    /**
-     * @return Collection|Suggestion[]
-     */
-    public function getSuggestionId(): Collection
+    public function getSuggestion(): ?Suggestion
     {
-        return $this->suggestionId;
+        return $this->suggestion;
     }
 
-    public function addSuggestionId(Suggestion $suggestionId): self
+    public function setSuggestion(?Suggestion $suggestion): self
     {
-        if (!$this->suggestionId->contains($suggestionId)) {
-            $this->suggestionId[] = $suggestionId;
-            $suggestionId->setResultQuestion($this);
-        }
+        $this->suggestion = $suggestion;
 
         return $this;
     }
 
-    public function removeSuggestionId(Suggestion $suggestionId): self
+    public function getResultQuestion(): ?ResultQcm
     {
-        if ($this->suggestionId->contains($suggestionId)) {
-            $this->suggestionId->removeElement($suggestionId);
-            // set the owning side to null (unless already changed)
-            if ($suggestionId->getResultQuestion() === $this) {
-                $suggestionId->setResultQuestion(null);
-            }
-        }
-
-        return $this;
+        return $this->resultQuestion;
     }
 
-    public function getResultQcmId(): ?ResultQcm
+    public function setResultQuestion(?ResultQcm $resultQuestion): self
     {
-        return $this->resultQcmId;
-    }
-
-    public function setResultQcmId(?ResultQcm $resultQcmId): self
-    {
-        $this->resultQcmId = $resultQcmId;
+        $this->resultQuestion = $resultQuestion;
 
         return $this;
     }

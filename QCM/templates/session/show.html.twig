@@ -13,11 +13,11 @@
             </tr>
             <tr>
                 <th>StartDate</th>
-                <td>{{ session.startDate ? session.startDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ session.startDate ? session.startDate|date('Y-m-d') : '' }}</td>
             </tr>
             <tr>
-                <th>EndTime</th>
-                <td>{{ session.endTime ? session.endTime|date('Y-m-d H:i:s') : '' }}</td>
+                <th>EndDate</th>
+                <td>{{ session.endDate ? session.endDate|date('Y-m-d') : '' }}</td>
             </tr>
         </tbody>
     </table>

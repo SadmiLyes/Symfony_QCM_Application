@@ -3,7 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Quiz;
-use App\Form\Quiz3Type;
+use App\Entity\User;
+use App\Form\QuizType;
 use App\Repository\QuizRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -29,15 +30,23 @@ class QuizController extends Controller
     public function new(Request $request): Response
     {
         $quiz = new Quiz();
-        $form = $this->createForm(Quiz3Type::class, $quiz);
+
+
+        $form = $this->createForm(QuizType::class, $quiz);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $user = $this->getDoctrine()
+                ->getRepository(User::class)
+                ->find(1);
             $em = $this->getDoctrine()->getManager();
+            $quiz->setAuthor($user);
+            $em->persist($user);
             $em->persist($quiz);
             $em->flush();
-
-            return $this->redirectToRoute('quiz_index');
+            return $this->redirectToRoute('question_new',[
+                'quizId' => $quiz->getId()
+            ]);
         }
 
         return $this->render('quiz/new.html.twig', [
@@ -59,7 +68,7 @@ class QuizController extends Controller
      */
     public function edit(Request $request, Quiz $quiz): Response
     {
-        $form = $this->createForm(Quiz3Type::class, $quiz);
+        $form = $this->createForm(QuizType::class, $quiz);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

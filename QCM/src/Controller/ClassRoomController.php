@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\ClassRoom;
-use App\Form\ClassRoom1Type;
+use App\Form\ClassRoomType;
 use App\Repository\ClassRoomRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/class/room")
+ * @Route("/class_room")
  */
 class ClassRoomController extends Controller
 {
@@ -20,6 +20,7 @@ class ClassRoomController extends Controller
      */
     public function index(ClassRoomRepository $classRoomRepository): Response
     {
+        dump($classRoomRepository);die;
         return $this->render('class_room/index.html.twig', ['class_rooms' => $classRoomRepository->findAll()]);
     }
 
@@ -29,7 +30,7 @@ class ClassRoomController extends Controller
     public function new(Request $request): Response
     {
         $classRoom = new ClassRoom();
-        $form = $this->createForm(ClassRoom1Type::class, $classRoom);
+        $form = $this->createForm(ClassRoomType::class, $classRoom);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -59,7 +60,7 @@ class ClassRoomController extends Controller
      */
     public function edit(Request $request, ClassRoom $classRoom): Response
     {
-        $form = $this->createForm(ClassRoom1Type::class, $classRoom);
+        $form = $this->createForm(ClassRoomType::class, $classRoom);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

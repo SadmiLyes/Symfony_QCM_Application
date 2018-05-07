@@ -13,7 +13,8 @@ class ResultQuestionType extends AbstractType
     {
         $builder
             ->add('given')
-            ->add('resultQcmId')
+            ->add('suggestion')
+            ->add('resultQuestion')
         ;
     }
 

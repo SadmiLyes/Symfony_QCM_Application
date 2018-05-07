@@ -19,45 +19,29 @@ class ClassRoom
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="ClassRooms")
-     */
-    private $author;
-
-    /**
      * @ORM\Column(type="string", length=255)
      */
     private $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Member", mappedBy="ClassRoomId")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="classRooms")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $members;
+    private $author;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Session", inversedBy="ClassRoomId")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Session", mappedBy="classRoom")
      */
-    private $session;
+    private $sessions;
 
     public function __construct()
     {
-        $this->members = new ArrayCollection();
+        $this->sessions = new ArrayCollection();
     }
 
     public function getId()
     {
         return $this->id;
-    }
-
-    public function getAuthor(): ?User
-    {
-        return $this->author;
-    }
-
-    public function setAuthor(?User $author): self
-    {
-        $this->author = $author;
-
-        return $this;
     }
 
     public function getName(): ?string
@@ -72,42 +56,42 @@ class ClassRoom
         return $this;
     }
 
+    public function getAuthor(): ?User
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(?User $author): self
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
     /**
-     * @return Collection|Member[]
+     * @return Collection|Session[]
      */
-    public function getMembers(): Collection
+    public function getSessions(): Collection
     {
-        return $this->members;
+        return $this->sessions;
     }
 
-    public function addMember(Member $member): self
+    public function addSession(Session $session): self
     {
-        if (!$this->members->contains($member)) {
-            $this->members[] = $member;
-            $member->addClassRoomId($this);
+        if (!$this->sessions->contains($session)) {
+            $this->sessions[] = $session;
+            $session->addClassRoom($this);
         }
 
         return $this;
     }
 
-    public function removeMember(Member $member): self
+    public function removeSession(Session $session): self
     {
-        if ($this->members->contains($member)) {
-            $this->members->removeElement($member);
-            $member->removeClassRoomId($this);
+        if ($this->sessions->contains($session)) {
+            $this->sessions->removeElement($session);
+            $session->removeClassRoom($this);
         }
-
-        return $this;
-    }
-
-    public function getSession(): ?Session
-    {
-        return $this->session;
-    }
-
-    public function setSession(?Session $session): self
-    {
-        $this->session = $session;
 
         return $this;
     }

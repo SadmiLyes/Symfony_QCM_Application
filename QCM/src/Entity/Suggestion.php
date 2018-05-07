@@ -24,17 +24,12 @@ class Suggestion
     /**
      * @ORM\Column(type="boolean")
      */
-    private $isRight;
+    private $answer;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Question", inversedBy="suggestions")
      */
-    private $questionId;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\ResultQuestion", inversedBy="suggestionId")
-     */
-    private $resultQuestion;
+    private $question;
 
     public function getId()
     {
@@ -53,38 +48,26 @@ class Suggestion
         return $this;
     }
 
-    public function getIsRight(): ?bool
+    public function getAnswer(): ?bool
     {
-        return $this->isRight;
+        return $this->answer;
     }
 
-    public function setIsRight(bool $isRight): self
+    public function setAnswer(bool $answer): self
     {
-        $this->isRight = $isRight;
+        $this->answer = $answer;
 
         return $this;
     }
 
-    public function getQuestionId(): ?Question
+    public function getQuestion(): ?Question
     {
-        return $this->questionId;
+        return $this->question;
     }
 
-    public function setQuestionId(?Question $questionId): self
+    public function setQuestion(?Question $question): self
     {
-        $this->questionId = $questionId;
-
-        return $this;
-    }
-
-    public function getResultQuestion(): ?ResultQuestion
-    {
-        return $this->resultQuestion;
-    }
-
-    public function setResultQuestion(?ResultQuestion $resultQuestion): self
-    {
-        $this->resultQuestion = $resultQuestion;
+        $this->question = $question;
 
         return $this;
     }

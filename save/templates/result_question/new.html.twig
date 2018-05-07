@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New ResultQuestion{% endblock %}
+
+{% block body %}
+    <h1>Create new ResultQuestion</h1>
+
+    {{ include('result_question/_form.html.twig') }}
+
+    <a href="{{ path('result_question_index') }}">back to list</a>
+{% endblock %}

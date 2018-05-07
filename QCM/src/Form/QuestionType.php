@@ -3,6 +3,10 @@
 namespace App\Form;
 
 use App\Entity\Question;
+use App\Entity\Quiz;
+use Doctrine\ORM\Query\Expr\Select;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -14,7 +18,6 @@ class QuestionType extends AbstractType
         $builder
             ->add('enunciate')
             ->add('isMultiple')
-            ->add('quiz_id')
         ;
     }
 

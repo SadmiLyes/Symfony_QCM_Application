@@ -30,11 +30,12 @@ class Question
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Quiz", inversedBy="questions")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $quizId;
+    private $quiz;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Suggestion", mappedBy="questionId")
+     * @ORM\OneToMany(targetEntity="App\Entity\Suggestion", mappedBy="question")
      */
     private $suggestions;
 
@@ -72,14 +73,14 @@ class Question
         return $this;
     }
 
-    public function getQuizId(): ?Quiz
+    public function getQuiz(): ?Quiz
     {
-        return $this->quizId;
+        return $this->quiz;
     }
 
-    public function setQuizId(?Quiz $quizId): self
+    public function setQuiz(?Quiz $quiz): self
     {
-        $this->quizId = $quizId;
+        $this->quiz = $quiz;
 
         return $this;
     }
@@ -96,7 +97,7 @@ class Question
     {
         if (!$this->suggestions->contains($suggestion)) {
             $this->suggestions[] = $suggestion;
-            $suggestion->setQuestionId($this);
+            $suggestion->setQuestion($this);
         }
 
         return $this;
@@ -107,8 +108,8 @@ class Question
         if ($this->suggestions->contains($suggestion)) {
             $this->suggestions->removeElement($suggestion);
             // set the owning side to null (unless already changed)
-            if ($suggestion->getQuestionId() === $this) {
-                $suggestion->setQuestionId(null);
+            if ($suggestion->getQuestion() === $this) {
+                $suggestion->setQuestion(null);
             }
         }
 

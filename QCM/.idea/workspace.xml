@@ -41,36 +41,36 @@
       <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/GroupController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MemberController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MemberController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/QuestionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/QuestionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/MemberController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/QuestionController.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/QuizController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ResultQcmController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ResultQcmController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ResultQuestionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ResultQuestionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SessionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SessionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SuggestionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SuggestionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ResultQcmController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ResultQuestionController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SessionController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SuggestionController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Group.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/ClassRoom.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Member.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Member.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Question.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Question.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Group.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Member.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Question.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Quiz.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Quiz.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/ResultQcm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/ResultQcm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/ResultQuestion.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/ResultQuestion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/ResultQcm.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/ResultQuestion.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Role.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Role.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Session.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Session.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Suggestion.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Suggestion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/GroupType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ClassRoomType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/MemberType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/MemberType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/Question1Type.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Question1Type.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/QuestionType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/QuestionType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/Quiz1Type.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Quiz1Type.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/QuizType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/QuizType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/ResultQcmType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ResultQcmType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/ResultQuestionType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ResultQuestionType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/SessionType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/SessionType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/SuggestionType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/SuggestionType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/UserType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/UserType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Session.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Suggestion.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/GroupType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/MemberType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/Question1Type.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/QuestionType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/Quiz1Type.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/QuizType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/ResultQcmType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/ResultQuestionType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/SessionType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/SuggestionType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/UserType.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Kernel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Migrations/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/Migrations/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Migrations/Version20180502195810.php" beforeDir="false" />
@@ -78,7 +78,7 @@
       <change beforePath="$PROJECT_DIR$/src/Repository/GroupRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ClassRoomRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/MemberRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/MemberRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/QuestionRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/QuestionRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/QuizRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/QuizRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/QuizRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/ResultQcmRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ResultQcmRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/ResultQuestionRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ResultQuestionRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/RoleRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/RoleRepository.php" afterDir="false" />
@@ -93,54 +93,54 @@
       <change beforePath="$PROJECT_DIR$/templates/group/index.html.twig" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/group/new.html.twig" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/group/show.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/member/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/member/_delete_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/member/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/member/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/member/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/member/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/member/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/member/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/member/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/member/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/member/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/member/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/question/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/question/_delete_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/question/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/question/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/question/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/question/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/question/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/question/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/question/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/question/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/question/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/question/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/member/_delete_form.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/member/_form.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/member/edit.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/member/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/member/new.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/member/show.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/question/_delete_form.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/question/_form.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/question/edit.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/question/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/question/new.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/question/show.html.twig" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/quiz/_delete_form.html.twig" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/quiz/_form.html.twig" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/quiz/edit.html.twig" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/quiz/index.html.twig" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/quiz/new.html.twig" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/quiz/show.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/result_qcm/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/result_qcm/_delete_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/result_qcm/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/result_qcm/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/result_qcm/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/result_qcm/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/result_qcm/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/result_qcm/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/result_qcm/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/result_qcm/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/result_qcm/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/result_qcm/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/result_question/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/result_question/_delete_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/result_question/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/result_question/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/result_question/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/result_question/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/result_question/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/result_question/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/result_question/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/result_question/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/result_question/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/result_question/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/session/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/session/_delete_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/session/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/session/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/session/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/session/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/session/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/session/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/session/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/session/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/session/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/session/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/suggestion/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/suggestion/_delete_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/suggestion/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/suggestion/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/suggestion/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/suggestion/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/suggestion/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/suggestion/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/suggestion/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/suggestion/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/suggestion/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/suggestion/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/_delete_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/result_qcm/_delete_form.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/result_qcm/_form.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/result_qcm/edit.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/result_qcm/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/result_qcm/new.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/result_qcm/show.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/result_question/_delete_form.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/result_question/_form.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/result_question/edit.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/result_question/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/result_question/new.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/result_question/show.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/session/_delete_form.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/session/_form.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/session/edit.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/session/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/session/new.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/session/show.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/suggestion/_delete_form.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/suggestion/_form.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/suggestion/edit.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/suggestion/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/suggestion/new.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/suggestion/show.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/_delete_form.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/_form.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/edit.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/new.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/show.html.twig" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/tests/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/translations/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/translations/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
@@ -152,31 +152,110 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <executablePath>C:\ProgramData\ComposerSetup\bin\composer</executablePath>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="navbar.html.twig" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/core/navbar.html.twig">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="QuizController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/QuizController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="123">
-              <caret line="19" column="74" selection-start-line="19" selection-start-column="74" selection-end-line="19" selection-end-column="74" />
+            <state relative-caret-position="782">
+              <caret line="42" column="36" selection-start-line="42" selection-start-column="11" selection-end-line="42" selection-end-column="36" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Route.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vendor/symfony/routing/Route.php">
+      <file leaf-file-name="new.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/question/new.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="679">
+              <caret line="104" column="25" selection-start-line="104" selection-start-column="25" selection-end-line="104" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_form.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/question/_form.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="115">
+              <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="529">
+              <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jquery.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/jquery.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="23">
+              <caret line="1" column="86841" selection-start-line="1" selection-start-column="86841" selection-end-line="1" selection-end-column="86841" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="add_question.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/js/add_question.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="69">
+              <caret line="3" column="27" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_form.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/quiz/_form.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="92">
+              <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="QuestionType.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Form/QuestionType.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
+              <folding>
+                <element signature="e#28#52#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="QuestionController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/QuestionController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="207">
-              <caret line="136" column="38" selection-start-line="136" selection-start-column="38" selection-end-line="136" selection-end-column="38" />
+              <caret line="32" column="105" selection-start-line="32" selection-start-column="105" selection-end-line="32" selection-end-column="105" />
+              <folding>
+                <element signature="e#34#58#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -192,13 +271,11 @@
       <command text="ls" />
       <command text="dir" />
       <command text="cmd" />
+      <command text="php bin/console server:run" />
     </commandsHistory>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.txt" root0="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -207,26 +284,40 @@
         <option value="$PROJECT_DIR$/config/packages/twig.yaml" />
         <option value="$PROJECT_DIR$/templates/user/index.html.twig" />
         <option value="$PROJECT_DIR$/templates/bootstrap_4_layout.html.twig" />
-        <option value="$PROJECT_DIR$/templates/user/_form.html.twig" />
-        <option value="$PROJECT_DIR$/src/Form/Quiz3Type.php" />
-        <option value="$PROJECT_DIR$/templates/user/new.html.twig" />
         <option value="$PROJECT_DIR$/templates/quiz/_form.html.twig" />
-        <option value="$PROJECT_DIR$/templates/base.html.twig" />
         <option value="$PROJECT_DIR$/templates/quiz/new.html.twig" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.htaccess" />
         <option value="$PROJECT_DIR$/src/Entity/ClassRoom.php" />
-        <option value="$PROJECT_DIR$/src/Controller/ClassRoomController.php" />
         <option value="$PROJECT_DIR$/src/Entity/Member.php" />
         <option value="$PROJECT_DIR$/src/Entity/Session.php" />
         <option value="$PROJECT_DIR$/src/Entity/User.php" />
         <option value="$PROJECT_DIR$/src/Repository/ClassRoomRepository.php" />
         <option value="$PROJECT_DIR$/templates/class_room/_delete_form.html.twig" />
         <option value="$PROJECT_DIR$/templates/class_room/edit.html.twig" />
-        <option value="$PROJECT_DIR$/templates/class_room/index.html.twig" />
         <option value="$PROJECT_DIR$/templates/class_room/new.html.twig" />
         <option value="$PROJECT_DIR$/templates/class_room/show.html.twig" />
         <option value="$PROJECT_DIR$/src/Form/MemberType.php" />
         <option value="$PROJECT_DIR$/templates/core/navbar.html.twig" />
+        <option value="$PROJECT_DIR$/src/Entity/Question.php" />
+        <option value="$PROJECT_DIR$/src/Form/Quiz3Type.php" />
+        <option value="$PROJECT_DIR$/src/Entity/Role.php" />
+        <option value="$PROJECT_DIR$/templates/user/_form.html.twig" />
+        <option value="$PROJECT_DIR$/templates/user/new.html.twig" />
+        <option value="$PROJECT_DIR$/src/Form/Question2Type.php" />
+        <option value="$PROJECT_DIR$/src/Entity/Quiz.php" />
+        <option value="$PROJECT_DIR$/src/Controller/ClassRoomController.php" />
+        <option value="$PROJECT_DIR$/templates/class_room/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/HomeController.php" />
+        <option value="$PROJECT_DIR$/templates/home/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/Form/QuizType.php" />
+        <option value="$PROJECT_DIR$/src/Controller/QuizController.php" />
+        <option value="$PROJECT_DIR$/templates/question/_form.html.twig" />
+        <option value="$PROJECT_DIR$/src/Form/QuestionType.php" />
+        <option value="$PROJECT_DIR$/public/js/jquery.js" />
+        <option value="$PROJECT_DIR$/templates/question/new.html.twig" />
+        <option value="$PROJECT_DIR$/templates/base.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/QuestionController.php" />
+        <option value="$PROJECT_DIR$/public/js/add_question.js" />
       </list>
     </option>
   </component>
@@ -343,8 +434,8 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="574" />
-    <option name="y" value="329" />
+    <option name="x" value="935" />
+    <option name="y" value="93" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
@@ -364,6 +455,17 @@
             <path>
               <item name="QCM" type="b2602c69:ProjectViewProjectNode" />
               <item name="QCM" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="QCM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="QCM" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="QCM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="QCM" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -376,7 +478,13 @@
               <item name="QCM" type="b2602c69:ProjectViewProjectNode" />
               <item name="QCM" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Migrations" type="462c0819:PsiDirectoryNode" />
+              <item name="Entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="QCM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="QCM" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Form" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="QCM" type="b2602c69:ProjectViewProjectNode" />
@@ -387,7 +495,13 @@
               <item name="QCM" type="b2602c69:ProjectViewProjectNode" />
               <item name="QCM" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="question" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="QCM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="QCM" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="quiz" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -405,11 +519,13 @@
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.composer" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Misc\rendu\PHP_Avance_my_quiz\QCM\templates\quiz" />
+      <recent name="D:\Misc\rendu\PHP_Avance_my_quiz\QCM\public" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Misc\rendu\PHP_Avance_my_quiz\QCM\templates" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Misc\rendu\PHP_Avance_my_quiz\QCM\public" />
+      <recent name="D:\Misc\rendu\PHP_Avance_my_quiz\QCM\src" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -435,37 +551,42 @@
       <option name="presentableId" value="Default" />
       <updated>1525343726226</updated>
       <workItem from="1525343728628" duration="20133000" />
+      <workItem from="1525443586969" duration="13121000" />
+      <workItem from="1525534110423" duration="3944000" />
+      <workItem from="1525606801363" duration="1604000" />
+      <workItem from="1525617056753" duration="14912000" />
+      <workItem from="1525678274941" duration="1735000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20133000" />
+    <option name="totallyTimeSpent" value="55449000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Command Line Tools Console" weight="0.32928178" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info id="npm" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="right" id="Database" />
+      <window_info id="npm" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12939297" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Command Line Tools Console" order="7" weight="0.3281768" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -475,120 +596,10 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Entity/ClassRoom.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1818">
-          <caret line="96" column="36" selection-start-line="96" selection-start-column="36" selection-end-line="96" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/MemberController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/QuestionController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-57" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/QuizController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="31" column="38" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ResultQcmController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-57" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ResultQuestionController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-57" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/SessionController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-57" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/SuggestionController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-57" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-57" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Member.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="78" column="56" selection-start-line="78" selection-start-column="56" selection-end-line="78" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Question.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-57" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Quiz.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-57" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/ResultQcm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-57" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/ResultQuestion.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-57" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Role.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Session.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="109" column="26" selection-start-line="109" selection-start-column="26" selection-end-line="109" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Suggestion.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-57" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ClassRoomController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="655">
-          <caret line="87" column="48" selection-start-line="87" selection-start-column="48" selection-end-line="87" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="197" column="26" selection-start-line="197" selection-start-column="26" selection-end-line="197" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Repository/ClassRoomRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="39" column="58" selection-start-line="39" selection-start-column="58" selection-end-line="39" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/ResultQcm.php" />
+    <entry file="file://$PROJECT_DIR$/src/Entity/ResultQuestion.php" />
+    <entry file="file://$PROJECT_DIR$/src/Entity/Session.php" />
+    <entry file="file://$PROJECT_DIR$/src/Entity/Suggestion.php" />
     <entry file="file://$PROJECT_DIR$/src/Repository/MemberRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-57" />
@@ -604,31 +615,15 @@
         <state relative-caret-position="-57" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Repository/ResultQcmRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-57" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Repository/ResultQuestionRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-57" />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/ResultQcmRepository.php" />
+    <entry file="file://$PROJECT_DIR$/src/Repository/ResultQuestionRepository.php" />
     <entry file="file://$PROJECT_DIR$/src/Repository/RoleRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-57" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Repository/SessionRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-57" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Repository/SuggestionRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-57" />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/SessionRepository.php" />
+    <entry file="file://$PROJECT_DIR$/src/Repository/SuggestionRepository.php" />
     <entry file="file://$PROJECT_DIR$/src/Repository/UserRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-57" />
@@ -641,20 +636,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/class_room/_form.html.twig">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/class_room/edit.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
           <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/class_room/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="33" column="31" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -677,60 +662,232 @@
         <state relative-caret-position="-57" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/ClassRoomType.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/MemberType.php">
+    <entry file="file://$PROJECT_DIR$/src/Form/MemberType.php" />
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/routing/Route.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+        <state relative-caret-position="2967">
+          <caret line="136" column="38" selection-start-line="136" selection-start-column="38" selection-end-line="136" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/Question1Type.php">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/vendor/doctrine/orm/lib/Doctrine/ORM/Decorator/EntityManagerDecorator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="185" column="20" selection-start-line="185" selection-start-column="20" selection-end-line="185" selection-end-column="20" />
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/QuestionType.php">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/vendor/doctrine/common/lib/Doctrine/Common/Persistence/ObjectManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="119" column="20" selection-start-line="119" selection-start-column="20" selection-end-line="119" selection-end-column="20" />
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/Quiz1Type.php">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/src/Form/Quiz3Type.php" />
+    <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1151">
+          <caret line="197" column="26" selection-start-line="197" selection-start-column="26" selection-end-line="197" selection-end-column="26" />
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/Quiz2Type.php">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/src/Entity/Role.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="40" column="26" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="26" />
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/Quiz3Type.php">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/templates/user/_form.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/QuizType.php">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/templates/user/new.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/ResultQcmType.php">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/src/Form/Question2Type.php" />
+    <entry file="file://$PROJECT_DIR$/src/Repository/ClassRoomRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="39" column="58" selection-start-line="39" selection-start-column="58" selection-end-line="39" selection-end-column="58" />
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/ResultQuestionType.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/SessionType.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/SuggestionType.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/UserType.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/routing/Route.php">
+    <entry file="file://$PROJECT_DIR$/src/Controller/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
-          <caret line="136" column="38" selection-start-line="136" selection-start-column="38" selection-end-line="136" selection-end-column="38" />
+          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ClassRoomController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
+          <folding>
+            <element signature="e#34#59#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/core/navbar.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="19" column="74" selection-start-line="19" selection-start-column="74" selection-end-line="19" selection-end-column="74" />
+        <state relative-caret-position="495">
+          <caret line="35" column="56" selection-start-line="35" selection-start-column="56" selection-end-line="35" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="45" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/user/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="4" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/class_room/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="15" column="15" selection-start-line="15" selection-start-column="15" selection-end-line="15" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/HomeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+          <folding>
+            <element signature="e#116#175#0#PHP" expanded="true" />
+            <element signature="e#404#426#1#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/home/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="633">
+          <caret line="96" selection-start-line="96" selection-end-line="96" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Quiz.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="157" column="27" selection-start-line="157" selection-start-column="20" selection-end-line="157" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/QuizType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="20" column="40" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Question.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1231">
+          <caret line="117" selection-start-line="117" selection-end-line="118" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/quiz/new.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" selection-start-line="5" selection-end-line="17" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/jquery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="1" column="86841" selection-start-line="1" selection-start-column="86841" selection-end-line="1" selection-end-column="86841" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/question/_form.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/question/new.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="679">
+          <caret line="104" column="25" selection-start-line="104" selection-start-column="25" selection-end-line="104" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/quiz/_form.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/QuizController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="42" column="36" selection-start-line="42" selection-start-column="11" selection-end-line="42" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/QuestionType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="e#28#52#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/QuestionController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="32" column="105" selection-start-line="32" selection-start-column="105" selection-end-line="32" selection-end-column="105" />
+          <folding>
+            <element signature="e#34#58#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/add_question.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="27" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
         </state>
       </provider>
     </entry>

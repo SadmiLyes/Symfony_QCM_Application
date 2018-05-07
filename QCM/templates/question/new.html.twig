@@ -3,9 +3,104 @@
 {% block title %}New Question{% endblock %}
 
 {% block body %}
-    <h1>Create new Question</h1>
+    <div class="container mt-4">
 
-    {{ include('question/_form.html.twig') }}
+            <div class="card " >
+                <div class="card-body">
+                    <h3 class="card-title text-center text-secondary">New Question :</h3>
+                    <hr>
+                    {{ include('question/_form.html.twig') }}
+                    <hr>
+                        <div class="card">
+                            <div class="card-body bg-light">
+                                <h5 class="card-title">The question</h5>
+                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                <a href="#" class="btn btn-warning mr-auto">Edit</a>
+                            </div>
+                        </div>
+                    <hr>
+                    <div class="row mt-4" id="suggestions">
+                        <div class="col-lg-12 row mx-auto">
+                            <div class="col-lg-6">
+                                    <div class="alert alert-info" role="alert">
+                                        Suggestion number 1
+                                    </div>
 
-    <a href="{{ path('question_index') }}">back to list</a>
+                            </div>
+
+                            <div class="col-lg-3">
+                                <div class="alert alert-success" role="alert">
+                                    The answer is true
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3">
+                                <div class="alert alert-warning text-center">
+                                    <a href="#" class="alert-link">Edit</a>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    <div class="col-lg-12 row mx-auto">
+                        <div class="col-lg-6">
+                            <div class="alert alert-info" role="alert">
+                                Suggestion number 2
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-3">
+                            <div class="alert alert-danger" role="alert">
+                                The answer is false
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3">
+                            <div class="alert alert-warning text-center">
+                                <a href="#" class="alert-link">Edit</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    </div>
+                    <hr>
+
+                    <form class="row mx-auto">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="formGroupExampleInput">Suggestion</label>
+                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                            </div>
+                        </div>
+                        <div class="col-lg-3 my-auto mx-auto row">
+                            <div class="form-check mr-5">
+                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    True
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    False
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 my-auto mx-auto row">
+                            <button type="button" class="btn btn-success">save</button>
+                        </div>
+                    </form>
+
+                </div>
+
+
+                <a href="{{ path('question_index') }}" class="card-link btn btn-danger col-lg-2 m-3">back to list</a>
+            </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/add_question.js') }}"></script>
 {% endblock %}

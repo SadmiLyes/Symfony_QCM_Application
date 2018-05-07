@@ -10,7 +10,7 @@
             <tr>
                 <th>Id</th>
                 <th>StartDate</th>
-                <th>EndTime</th>
+                <th>EndDate</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -18,8 +18,8 @@
         {% for session in sessions %}
             <tr>
                 <td>{{ session.id }}</td>
-                <td>{{ session.startDate ? session.startDate|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ session.endTime ? session.endTime|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ session.startDate ? session.startDate|date('Y-m-d') : '' }}</td>
+                <td>{{ session.endDate ? session.endDate|date('Y-m-d') : '' }}</td>
                 <td>
                     <a href="{{ path('session_show', {'id': session.id}) }}">show</a>
                     <a href="{{ path('session_edit', {'id': session.id}) }}">edit</a>

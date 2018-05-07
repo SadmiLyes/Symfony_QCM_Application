@@ -13,9 +13,8 @@ class SuggestionType extends AbstractType
     {
         $builder
             ->add('content')
-            ->add('isRight')
-            ->add('questionId')
-            ->add('resultQuestion')
+            ->add('answer')
+            ->add('question')
         ;
     }
 

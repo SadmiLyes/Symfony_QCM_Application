@@ -2,8 +2,6 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -19,65 +17,47 @@ class Member
     private $id;
 
     /**
+     * @ORM\OneToOne(targetEntity="App\Entity\ClassRoom", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $classRoom;
+
+    /**
      * @ORM\OneToOne(targetEntity="App\Entity\User", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
-    private $userId;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="ClassRoom", inversedBy="members")
-     */
-    private $ClassRoomId;
+    private $student;
 
     /**
      * @ORM\Column(type="boolean")
      */
     private $isConfirmed;
 
-    public function __construct()
-    {
-        $this->ClassRoomId = new ArrayCollection();
-    }
-
     public function getId()
     {
         return $this->id;
     }
 
-    public function getUserId(): ?User
+    public function getClassRoom(): ?ClassRoom
     {
-        return $this->userId;
+        return $this->classRoom;
     }
 
-    public function setUserId(User $userId): self
+    public function setClassRoom(ClassRoom $classRoom): self
     {
-        $this->userId = $userId;
+        $this->classRoom = $classRoom;
 
         return $this;
     }
 
-    /**
-     * @return Collection|ClassRoom[]
-     */
-    public function getClassRoomId(): Collection
+    public function getStudent(): ?User
     {
-        return $this->ClassRoomId;
+        return $this->student;
     }
 
-    public function addClassRoomId(ClassRoom $ClassRoomId): self
+    public function setStudent(User $student): self
     {
-        if (!$this->ClassRoomId->contains($ClassRoomId)) {
-            $this->ClassRoomId[] = $ClassRoomId;
-        }
-
-        return $this;
-    }
-
-    public function removeClassRoomId(ClassRoom $ClassRoomId): self
-    {
-        if ($this->ClassRoomId->contains($ClassRoomId)) {
-            $this->ClassRoomId->removeElement($ClassRoomId);
-        }
+        $this->student = $student;
 
         return $this;
     }

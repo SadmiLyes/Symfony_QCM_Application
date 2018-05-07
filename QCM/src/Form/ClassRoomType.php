@@ -14,8 +14,7 @@ class ClassRoomType extends AbstractType
         $builder
             ->add('name')
             ->add('author')
-            ->add('members')
-            ->add('session')
+            ->add('sessions')
         ;
     }
 

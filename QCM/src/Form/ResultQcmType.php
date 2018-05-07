@@ -13,9 +13,8 @@ class ResultQcmType extends AbstractType
     {
         $builder
             ->add('mark')
-            ->add('studentId')
-            ->add('quizId')
-            ->add('sessionId')
+            ->add('student')
+            ->add('session')
         ;
     }
 

@@ -2,9 +2,10 @@
 
 {% block title %}New User{% endblock %}
 
-{% form_theme form 'bootstrap_4_layout.html.twig' %}
-
 {% block body %}
-    <h1>User Sign Up:</h1>
-    {{ form(form) }}
+    <h1>Create new User</h1>
+
+    {{ include('user/_form.html.twig') }}
+
+    <a href="{{ path('user_index') }}">back to list</a>
 {% endblock %}

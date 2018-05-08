@@ -1,7 +1,6 @@
 <?php
-
 namespace App\Controller;
-
+use App\Entity\Question;
 use App\Entity\Suggestion;
 use App\Form\SuggestionType;
 use App\Repository\SuggestionRepository;
@@ -9,7 +8,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
 /**
  * @Route("/suggestion")
  */
@@ -22,7 +20,6 @@ class SuggestionController extends Controller
     {
         return $this->render('suggestion/index.html.twig', ['suggestions' => $suggestionRepository->findAll()]);
     }
-
     /**
      * @Route("/new", name="suggestion_new", methods="GET|POST")
      */
@@ -31,21 +28,25 @@ class SuggestionController extends Controller
         $suggestion = new Suggestion();
         $form = $this->createForm(SuggestionType::class, $suggestion);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
+            $question =  $this->getDoctrine()
+                ->getRepository(Question::class)
+                ->find($_POST['suggestion']['question']);
             $em = $this->getDoctrine()->getManager();
+            $suggestion->setQuestion($question);
             $em->persist($suggestion);
             $em->flush();
-
-            return $this->redirectToRoute('suggestion_index');
+            return $this->json([
+                'Id' => $suggestion->getId(),
+                'content' => $suggestion->getContent(),
+                'answer' => $suggestion->getAnswer()
+            ]);
         }
-
         return $this->render('suggestion/new.html.twig', [
             'suggestion' => $suggestion,
             'form' => $form->createView(),
         ]);
     }
-
     /**
      * @Route("/{id}", name="suggestion_show", methods="GET")
      */
@@ -53,7 +54,6 @@ class SuggestionController extends Controller
     {
         return $this->render('suggestion/show.html.twig', ['suggestion' => $suggestion]);
     }
-
     /**
      * @Route("/{id}/edit", name="suggestion_edit", methods="GET|POST")
      */
@@ -61,19 +61,15 @@ class SuggestionController extends Controller
     {
         $form = $this->createForm(SuggestionType::class, $suggestion);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
             return $this->redirectToRoute('suggestion_edit', ['id' => $suggestion->getId()]);
         }
-
         return $this->render('suggestion/edit.html.twig', [
             'suggestion' => $suggestion,
             'form' => $form->createView(),
         ]);
     }
-
     /**
      * @Route("/{id}", name="suggestion_delete", methods="DELETE")
      */
@@ -84,7 +80,6 @@ class SuggestionController extends Controller
             $em->remove($suggestion);
             $em->flush();
         }
-
         return $this->redirectToRoute('suggestion_index');
     }
 }

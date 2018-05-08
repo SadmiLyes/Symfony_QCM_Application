@@ -21,6 +21,7 @@
       <excludeFolder url="file://$MODULE_DIR$/QCM/vendor/easycorp/easy-log-handler" />
       <excludeFolder url="file://$MODULE_DIR$/QCM/vendor/egulias/email-validator" />
       <excludeFolder url="file://$MODULE_DIR$/QCM/vendor/fig/link-util" />
+      <excludeFolder url="file://$MODULE_DIR$/QCM/vendor/friendsofsymfony/jsrouting-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/QCM/vendor/jdorn/sql-formatter" />
       <excludeFolder url="file://$MODULE_DIR$/QCM/vendor/monolog/monolog" />
       <excludeFolder url="file://$MODULE_DIR$/QCM/vendor/nikic/php-parser" />
@@ -94,6 +95,7 @@
       <excludeFolder url="file://$MODULE_DIR$/QCM/vendor/symfony/yaml" />
       <excludeFolder url="file://$MODULE_DIR$/QCM/vendor/twig/twig" />
       <excludeFolder url="file://$MODULE_DIR$/QCM/vendor/webmozart/assert" />
+      <excludeFolder url="file://$MODULE_DIR$/QCM/vendor/willdurand/jsonp-callback-validator" />
       <excludeFolder url="file://$MODULE_DIR$/QCM/vendor/zendframework/zend-code" />
       <excludeFolder url="file://$MODULE_DIR$/QCM/vendor/zendframework/zend-eventmanager" />
     </content>

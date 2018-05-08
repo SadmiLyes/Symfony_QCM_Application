@@ -4,13 +4,16 @@ namespace App\Controller;
 
 use App\Entity\Question;
 use App\Entity\Quiz;
+use App\Entity\Suggestion;
 use App\Form\QuestionType;
+use App\Form\SuggestionType;
 use App\Repository\QuestionRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Security\Csrf\CsrfToken;
+use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
 /**
  * @Route("/question")
  */
@@ -26,13 +29,16 @@ class QuestionController extends Controller
 
     /**
      * @Route("/new", name="question_new", methods="GET|POST")
+     *
      */
     public function new(Request $request): Response
     {
         $question = new Question();
-        $form = $this->createForm(QuestionType::class, $question, ['attr' => ['class' => 'saveQuestion']]);
-        $form->handleRequest($request);
+        $suggestion = new Suggestion();
+        $form = $this->createForm(QuestionType::class, $question, ['attr' => ['id' => 'saveQuestion']]);
+        $suggestionForm = $this->createForm(SuggestionType::class, $suggestion, ['attr' => ['id' => 'suggestionForm']]);
 
+        $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $quiz = $this->getDoctrine()
                 ->getRepository(Quiz::class)
@@ -42,13 +48,21 @@ class QuestionController extends Controller
             $em->persist($quiz);
             $em->persist($question);
             $em->flush();
-            return $this->redirectToRoute('question_index');
+            return $this->json([
+                'Id' => $question->getId(),
+                'Enunciate' => $question->getEnunciate(),
+                'isMultiple' => $question->getIsMultiple(),
+                'quiz' => $question->getQuiz()->getId()
+            ]);
         }
         return $this->render('question/new.html.twig', [
             'question' => $question,
             'form' => $form->createView(),
+            'suggestionForm' => $suggestionForm->createView()
         ]);
     }
+
+
 
     /**
      * @Route("/{id}", name="question_show", methods="GET")

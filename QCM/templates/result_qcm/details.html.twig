@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+{% block title %}ResultQcm{% endblock %}
+{% block body %}
+    <div class="container my-4">
+        <h3>{{ resultQcm.quiz.name|capitalize }}</h3>
+    </div>
+
+    <div class="container col-lg-10">
+
+        {% for question in resultQcm.quiz.questions  %}
+            <ul class="list-group mb-4">
+                <li class="list-group-item list-group-item-light lead">Question {{ loop.index }} : {{ question.enunciate }}</li>
+                {% for suggestion in question.suggestions %}
+                    {% if suggestion.answer %}
+                        <li class="list-group-item list-group-item-success">{{ suggestion.content }}</li>
+                    {% else %}
+                        <li class="list-group-item list-group-item-danger">{{ suggestion.content }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    </div>
+{% endblock %}

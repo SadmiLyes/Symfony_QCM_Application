@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Exam{% endblock %}
+
+{% block body %}
+
+    <div class="container mt-4">
+        <h1>session number {{ id }}</h1>
+
+        <div class="container">
+            {{ include('session/_form.html.twig') }}
+        </div>
+    </div>
+
+{% endblock %}

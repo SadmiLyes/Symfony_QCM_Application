@@ -35,12 +35,12 @@ class Session
     private $quiz;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
      */
     private $startDate;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
      */
     private $endDate;
 
@@ -74,6 +74,16 @@ class Session
     /**
      * @return Collection|ClassRoom[]
      */
+
+    public function setClassRoom(?ClassRoom $classRoom): self
+    {
+        if (!$this->classRoom->contains($classRoom)) {
+            $this->classRoom[] = $classRoom;
+        }
+
+        return $this;
+    }
+
     public function getClassRoom(): Collection
     {
         return $this->classRoom;
@@ -149,5 +159,11 @@ class Session
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+        return '';
     }
 }

@@ -63,6 +63,11 @@ class Quiz
      */
     private $sessions;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\ResultQcm", mappedBy="quiz", cascade={"persist", "remove"})
+     */
+    private $resultQcm;
+
     public function __construct()
     {
         $this->questions = new ArrayCollection();
@@ -223,6 +228,23 @@ class Quiz
             if ($session->getQuiz() === $this) {
                 $session->setQuiz(null);
             }
+        }
+
+        return $this;
+    }
+
+    public function getResultQcm(): ?ResultQcm
+    {
+        return $this->resultQcm;
+    }
+
+    public function setResultQcm(ResultQcm $resultQcm): self
+    {
+        $this->resultQcm = $resultQcm;
+
+        // set the owning side of the relation if necessary
+        if ($this !== $resultQcm->getQuiz()) {
+            $resultQcm->setQuiz($this);
         }
 
         return $this;

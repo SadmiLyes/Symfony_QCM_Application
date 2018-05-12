@@ -1,26 +1,67 @@
 {% extends 'base.html.twig' %}
-
 {% block title %}ResultQcm{% endblock %}
-
 {% block body %}
-    <h1>ResultQcm</h1>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ result_qcm.id }}</td>
-            </tr>
-            <tr>
-                <th>Mark</th>
-                <td>{{ result_qcm.mark }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('result_qcm_index') }}">back to list</a>
-
-    <a href="{{ path('result_qcm_edit', {'id': result_qcm.id}) }}">edit</a>
-
-    {{ include('result_qcm/_delete_form.html.twig') }}
+    <div class="container">
+    <div class="col-lg-12">
+        <div class="col-lg-3 mx-auto">
+            {% for msg in app.session.flashBag.get('error') %}
+                <div class="alert alert-danger" role="alert">
+                    {{ msg }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="row" style='height:90vh;'>
+        <div class="col-md-10 mx-auto my-auto">
+            <div class="card">
+                <h5 class="card-header">Result for {{ resultQcm.quiz.name|capitalize }}</h5>
+                <div class="card-body ">
+                    <div class="row mx-auto">
+                    <div class="alert-light p-3 mb-2">
+                        <h5 class="card-title"><u>Session info :</u></h5>
+                        {% if resultQcm.session.author.firstName != null %}
+                            <p> Created By : {{ resultQcm.session.author.firstName|capitalize }} {{ resultQcm.session.author.lastName|capitalize }}</p>
+                        {% endif %}
+                        <p> start date : {{ resultQcm.session.startDate |date("Y F, jS \\a\\t g:ia")}}</p>
+                        <p> end date : {{ resultQcm.session.endDate|date("Y F, jS \\a\\t g:ia") }}</p>
+                    </div>
+                    <hr>
+                        <div class="alert-light p-3">
+                            <h5 class="card-title"><u>Quiz info :</u></h5>
+                            {% if resultQcm.quiz.author.firstName != null %}
+                                <p> Created By : {{ resultQcm.quiz.author.firstName|capitalize }} {{ resultQcm.quiz.author.lastName|capitalize }}</p>
+                            {% endif %}
+                            {% if resultQcm.quiz.description != null %}
+                                <p> Description : {{ resultQcm.quiz.description|capitalize }}</p>
+                            {% endif %}
+                            <h5>
+                               <u>Points :</u>
+                            </h5>
+                            <ul>
+                                <li>Total points : {{ resultQcm.quiz.maxPoints }}</li>
+                                <li>Right answer points : {{ resultQcm.quiz.rightAmountPoints }}</li>
+                                <li>Wrong answer points : {{ resultQcm.quiz.wrongAmountPoints }}</li>
+                                <li>Neutral answer points : {{ resultQcm.quiz.neutralAmountPoints }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <hr>
+                    {% if date(resultQcm.session.endDate) < date("now") %}
+                        <div class="card-footer alert-success mb-2 rounded mx-auto col-lg-3">
+                            <h5><u>Your mark :</u></h5>
+                            <h1 class="text-center">
+                                  {{ resultQcm.mark }} / {{ resultQcm.quiz.maxPoints }}
+                            </h1>
+                        </div>
+                        {% else %}
+                        <div class="card-footer alert-warning mb-2 rounded">
+                            Your mark is not available yet.
+                        </div>
+                    {% endif %}
+                    <hr>
+                    <a href="{{ path('result_qcm_details',{'id' : resultQcm.id}) }}" class="btn btn-info">Show details</a>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

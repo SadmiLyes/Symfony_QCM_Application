@@ -38,6 +38,12 @@ class ResultQcm
      */
     private $resultQuestions;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Quiz", inversedBy="resultQcm", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $quiz;
+
     public function __construct()
     {
         $this->resultQuestions = new ArrayCollection();
@@ -111,6 +117,18 @@ class ResultQcm
                 $resultQuestion->setResultQuestion(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getQuiz(): ?Quiz
+    {
+        return $this->quiz;
+    }
+
+    public function setQuiz(Quiz $quiz): self
+    {
+        $this->quiz = $quiz;
 
         return $this;
     }

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\ResultQcm;
+use App\Form\ResultDetailsType;
 use App\Form\ResultQcmType;
 use App\Repository\ResultQcmRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -47,12 +48,20 @@ class ResultQcmController extends Controller
     }
 
     /**
+     * @Route("/{id}/details", name="result_qcm_details", methods="GET")
+     */
+    public function detailAction(ResultQcm $resultQcm): Response
+    {
+        return $this->render('result_qcm/details.html.twig', ['resultQcm' => $resultQcm]);
+    }
+    /**
      * @Route("/{id}", name="result_qcm_show", methods="GET")
      */
     public function show(ResultQcm $resultQcm): Response
     {
-        return $this->render('result_qcm/show.html.twig', ['result_qcm' => $resultQcm]);
+        return $this->render('result_qcm/show.html.twig', ['resultQcm' => $resultQcm]);
     }
+
 
     /**
      * @Route("/{id}/edit", name="result_qcm_edit", methods="GET|POST")

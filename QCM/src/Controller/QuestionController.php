@@ -14,6 +14,7 @@ use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+
 /**
  * @Route("/question")
  */
@@ -39,10 +40,14 @@ class QuestionController extends Controller
         $suggestionForm = $this->createForm(SuggestionType::class, $suggestion, ['attr' => ['id' => 'suggestionForm']]);
 
         $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
+        $quizId = $request->query->get('quizId');
+        if ($quizId) {
             $quiz = $this->getDoctrine()
                 ->getRepository(Quiz::class)
-                ->find($request->query->get('quizId'));
+                ->find($quizId);
+        }
+
+        if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $question->setQuiz($quiz);
             $em->persist($quiz);
@@ -55,13 +60,13 @@ class QuestionController extends Controller
                 'quiz' => $question->getQuiz()->getId()
             ]);
         }
+
         return $this->render('question/new.html.twig', [
-            'question' => $question,
+            'questions' => $quiz->getQuestions()->getValues(),
             'form' => $form->createView(),
             'suggestionForm' => $suggestionForm->createView()
         ]);
     }
-
 
 
     /**
@@ -97,7 +102,7 @@ class QuestionController extends Controller
      */
     public function delete(Request $request, Question $question): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$question->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $question->getId(), $request->request->get('_token'))) {
             $em = $this->getDoctrine()->getManager();
             $em->remove($question);
             $em->flush();

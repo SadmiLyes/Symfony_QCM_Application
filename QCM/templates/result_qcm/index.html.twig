@@ -1,35 +1,28 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}ResultQcm index{% endblock %}
+{% block title %}ResultQcm{% endblock %}
 
 {% block body %}
-    <h1>ResultQcm index</h1>
+    <div class="container">
+        {{ dump(resultQcm.session.endDate) }}
+        <div class="row" style='height:90vh;'>
+            <div class="col-md-10 mx-auto my-auto">
+                <div class="card">
+                    <h5 class="card-header">Result for {{ resultQcm.quiz.name }}</h5>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ resultQcm.session.startDate }}</h5>
+                        <h5 class="card-title">{{ resultQcm.session.endDate }}</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Mark</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for result_qcm in result_qcms %}
-            <tr>
-                <td>{{ result_qcm.id }}</td>
-                <td>{{ result_qcm.mark }}</td>
-                <td>
-                    <a href="{{ path('result_qcm_show', {'id': result_qcm.id}) }}">show</a>
-                    <a href="{{ path('result_qcm_edit', {'id': result_qcm.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('result_qcm_new') }}">Create new</a>
+        </div>
 {% endblock %}

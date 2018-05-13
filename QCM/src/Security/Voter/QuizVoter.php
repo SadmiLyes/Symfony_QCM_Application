@@ -11,16 +11,7 @@ class QuizVoter extends Voter
 {
     protected function supports($attribute, $subject)
     {
-        // if the attribute isn't one we support, return false
-        if (!in_array($attribute, array(self::VIEW, self::EDIT))) {
-            return false;
-        }
-
-        // only vote on Post objects inside this voter
-        if (!$subject instanceof Quiz) {
-            return false;
-        }
-
+       
         return true;
     }
 

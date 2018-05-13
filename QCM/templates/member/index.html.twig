@@ -3,26 +3,34 @@
 {% block title %}Member index{% endblock %}
 
 {% block body %}
-    <h1>Member index</h1>
-
-    <table class="table">
+<div class="container bg-dark p-3 mt-5 rounded">
+    <div class=" py-1 text-center">
+       <h1 class="text-white">My student</h1>
+    </div>
+   <table class="rounded primary-border table bg-light">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>IsConfirmed</th>
-                <th>actions</th>
+                <th>Group</th>
+                <th>mail</th>
+                <th>Email validation</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
         {% for member in members %}
+         {%if app.user.id == member.classRoom.author.id%}
+
             <tr>
-                <td>{{ member.id }}</td>
+                <td>{{ member.classRoom.name}}</td>
+                <td>{{member.student}}</td>
                 <td>{{ member.isConfirmed ? 'Yes' : 'No' }}</td>
                 <td>
                     <a href="{{ path('member_show', {'id': member.id}) }}">show</a>
                     <a href="{{ path('member_edit', {'id': member.id}) }}">edit</a>
                 </td>
             </tr>
+
+        {%endif%}
         {% else %}
             <tr>
                 <td colspan="3">no records found</td>

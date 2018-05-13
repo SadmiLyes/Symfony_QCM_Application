@@ -4,12 +4,13 @@
 
 {% block body %}
 
-    <div class="container mt-4">
-        <h1>session number {{ id }}</h1>
-
-        <div class="container">
-            {{ include('session/_form.html.twig') }}
-        </div>
+    <div class="container bg-light mt-5 card p-4 col-lg-4">
+        <h3 class="text-center">
+            welcome to this session
+        </h3>
+            <hr>
+        {{ include('session/_form.html.twig') }}
     </div>
+
 
 {% endblock %}

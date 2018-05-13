@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\ClassRoom;
+use App\Entity\Member;
 use App\Form\ClassRoomType;
 use App\Repository\ClassRoomRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -20,8 +21,18 @@ class ClassRoomController extends Controller
      */
     public function index(ClassRoomRepository $classRoomRepository): Response
     {
-        dump($classRoomRepository);die;
-        return $this->render('class_room/index.html.twig', ['class_rooms' => $classRoomRepository->findAll()]);
+        $repository = $this
+              ->getDoctrine()
+              ->getManager()
+              ->getRepository('App\Entity\Member')
+            ;
+        $user = $this->getUser();
+        $student_mail = $user->getEmail();
+        if (!$this->get('security.authorization_checker')->isGranted('ROLE_TEACHER')) {
+          return $this->render('class_room/index.html.twig', ['class_rooms' => $repository->findBy(array('student' => $student_mail))]);
+        } else {
+            return $this->render('class_room/index.html.twig', ['class_rooms' => $classRoomRepository->findAll()]);
+        }
     }
 
     /**
@@ -29,12 +40,17 @@ class ClassRoomController extends Controller
      */
     public function new(Request $request): Response
     {
+        if (!$this->get('security.authorization_checker')->isGranted('ROLE_TEACHER')) {
+          return $this->redirectToRoute('class_room_index');
+        } 
         $classRoom = new ClassRoom();
         $form = $this->createForm(ClassRoomType::class, $classRoom);
         $form->handleRequest($request);
+        
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $classRoom->setAuthor($this->getUser());
             $em->persist($classRoom);
             $em->flush();
 
@@ -52,6 +68,9 @@ class ClassRoomController extends Controller
      */
     public function show(ClassRoom $classRoom): Response
     {
+        if (!$this->get('security.authorization_checker')->isGranted('ROLE_TEACHER')) {
+          return $this->redirectToRoute('class_room_index');
+        } 
         return $this->render('class_room/show.html.twig', ['class_room' => $classRoom]);
     }
 
@@ -60,6 +79,9 @@ class ClassRoomController extends Controller
      */
     public function edit(Request $request, ClassRoom $classRoom): Response
     {
+        if (!$this->get('security.authorization_checker')->isGranted('ROLE_TEACHER')) {
+          return $this->redirectToRoute('class_room_index');
+        } 
         $form = $this->createForm(ClassRoomType::class, $classRoom);
         $form->handleRequest($request);
 
@@ -80,6 +102,9 @@ class ClassRoomController extends Controller
      */
     public function delete(Request $request, ClassRoom $classRoom): Response
     {
+         if (!$this->get('security.authorization_checker')->isGranted('ROLE_TEACHER')) {
+          return $this->redirectToRoute('class_room_index');
+        } 
         if ($this->isCsrfTokenValid('delete'.$classRoom->getId(), $request->request->get('_token'))) {
             $em = $this->getDoctrine()->getManager();
             $em->remove($classRoom);

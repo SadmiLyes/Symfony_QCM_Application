@@ -1,0 +1,30 @@
+<div class=" py-1 text-center">
+    <h1 class="text-white">Student Results:</h1>
+</div>
+<table class="rounded primary-border table bg-light">
+    <thead>
+    <tr>
+        <th>student name</th>
+        <th>Mark</th>
+        <th>Group</th>
+        <th class="text-center">actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for result_qcm in result_qcms %}
+        {% set groupName = result_qcm.session.classRoom.getValues[0] %}
+        <tr>
+            <td>{{ result_qcm.student.firstName|capitalize }} - {{ result_qcm.student.lastName|capitalize }} </td>
+            <td>{{ result_qcm.mark }} / {{ result_qcm.session.quiz.maxPoints }}</td>
+            <td>{{ groupName.name }}</td>
+            <td class="text-center">
+                <a class="btn btn-warning" href="{{ path('result_qcm_edit', {'id': result_qcm.id}) }}">edit</a>
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="3">no records found</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

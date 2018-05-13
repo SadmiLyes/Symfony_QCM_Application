@@ -1,54 +1,65 @@
 {% block navbar %}
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="/">WEB@CADEMIE</a>
+        <a class="navbar-brand" href="/" style="color: gold;">WEB@CADEMIE</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarColor01">
-            <ul class="navbar-nav mr-auto">
-
+       <div class="collapse navbar-collapse" id="navbarColor01">
+           <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('user_index') }}">Profile</a>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        class_rooms Management
+                    <a class="nav-link" href="{{ path('quiz_index') }}" >
+                        My Quizzes
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="{{ path('class_room_index') }}">class_rooms</a>
-                        <a class="dropdown-item" href="{{ path('member_index') }}">Members</a>
-                    </div>
                 </li>
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Quiz Management
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="{{ path('quiz_index') }}">Quizs</a>
-                        <a class="dropdown-item" href="{{ path('result_qcm_index') }}">Result QCM</a>
-                    </div>
-                </li>
+               {% if is_granted('ROLE_STUDENT') == false %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('class_room_index') }}" >
+                            My groups
+                        </a>
+                    </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('session_index') }}">Sessions</a>
-                </li>
-            </ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('result_qcm_index') }}">
+                            Students results
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('session_index') }}">Sessions</a>
+                    </li>
+                   {% else %}
+                       <li class="nav-item">
+                           <a class="nav-link" href="{{ path('class_room_index') }}" >
+                                My Results
+                           </a>
+                       </li>
+
+                       <li class="nav-item">
+                           <a class="nav-link" href="{{ path('result_qcm_index') }}">
+                               My Groups
+                           </a>
+                       </li>
+
+               {% endif %}
+
+           </ul>
         </div>
-        <div class="collapse navbar-collapse" id="navbarColor01">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Profile
-                    </a>
-                    <div class="dropdown-menu" style="left:-65px;" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="{{ path('quiz_index') }}">Edit Profile</a>
-                        <a class="dropdown-item" href="{{ path('result_qcm_index') }}">Logout</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
+        {% if app.user %}
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ app.user.firstname|capitalize }} {{ app.user.lastname|capitalize }}
+                        </a>
+                        <div class="dropdown-menu" style="left:-65px;" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="{{ path('user_edit', {id: app.user.id}) }}">My Profile</a>
+                            <a class="dropdown-item" href="{{ path('logout') }}">Logout</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        {% endif %}
     </nav>
 {% endblock %}

@@ -3,32 +3,35 @@
 {% block title %}Quiz index{% endblock %}
 
 {% block body %}
-    <h1>Quiz index</h1>
-
-    <table class="table">
+<div class="container bg-dark p-3 mt-5 rounded">
+    <div class=" py-1 text-center">
+        <h1 class="text-white">Quiz index :</h1>
+    </div>
+    <table class="rounded primary-border table bg-light">
         <thead>
             <tr>
-                <th>Id</th>
+                <th>Author</th>
                 <th>Name</th>
                 <th>Description</th>
-                <th>MaxPoints</th>
-                <th>RightAmountPoints</th>
-                <th>WrongAmountPoints</th>
-                <th>NeutralAmountPoints</th>
+                <th>Max Points</th>
+                <th>Right</th>
+                <th>Wrong</th>
+                <th>Neutral</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for quiz in quizzes %}
+
             <tr>
-                <td>{{ quiz.id }}</td>
+                <td>{{ quiz.author.firstname| capitalize }} - {{ quiz.author.lastname| capitalize }}</td>
                 <td>{{ quiz.name }}</td>
                 <td>{{ quiz.description }}</td>
                 <td>{{ quiz.maxPoints }}</td>
                 <td>{{ quiz.rightAmountPoints }}</td>
                 <td>{{ quiz.wrongAmountPoints }}</td>
                 <td>{{ quiz.neutralAmountPoints }}</td>
-                <td>
+            <td>
                     <a href="{{ path('quiz_show', {'id': quiz.id}) }}">show</a>
                     <a href="{{ path('quiz_edit', {'id': quiz.id}) }}">edit</a>
                 </td>
@@ -40,6 +43,6 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('quiz_new') }}">Create new</a>
+    <a class="btn btn-primary" href="{{ path('quiz_new') }}">Create new</a>
+</div>
 {% endblock %}

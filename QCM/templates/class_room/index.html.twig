@@ -3,33 +3,57 @@
 {% block title %}ClassRoom index{% endblock %}
 
 {% block body %}
-    <h1>ClassRoom index</h1>
-
-    <table class="table">
-        <thead>
+    <div class="container bg-dark p-3 mt-5 rounded">
+    <div class=" py-1 text-center">
+       <h1 class="text-white">Group</h1>
+    </div>
+   <table class="rounded primary-border table bg-light">
+    <thead>
+        {% if is_granted('ROLE_TEACHER') %}
             <tr>
-                <th>Id</th>
                 <th>Name</th>
                 <th>actions</th>
+                <th>add a member</th>
             </tr>
+            {%else%}
+                <tr>
+                    <th>Name</th>
+                    <th>Validation</th>
+                </tr>
+        {%endif%}
         </thead>
         <tbody>
         {% for class_room in class_rooms %}
+        {% if is_granted('ROLE_TEACHER') %}
+            {%if app.user.id == class_room.author.id%}
+
+                <tr>
+                    <td>{{ class_room.name }}</td>
+                    <td>
+                        <a href="{{ path('class_room_edit', {'id': class_room.id}) }}">edit</a>
+                    </td>
+                    <td>
+                        <a href="{{ path('member_new') }}" class="btn btn-link">Add a member</a>
+                    </td>
+                </tr>
+        
+            {%endif%}
+        {%else%}
             <tr>
-                <td>{{ class_room.id }}</td>
-                <td>{{ class_room.name }}</td>
-                <td>
-                    <a href="{{ path('class_room_show', {'id': class_room.id}) }}">show</a>
-                    <a href="{{ path('class_room_edit', {'id': class_room.id}) }}">edit</a>
-                </td>
+                <td>{{ class_room.classRoom.name }}</td>
+                <td>{{ class_room.isConfirmed ? '<span class="alert alert-success">Yes</span>' : '<span class="alert alert-danger">Yes</span>' }}</td>
             </tr>
+        {%endif%}
         {% else %}
             <tr>
                 <td colspan="3">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
-    </table>
-
-    <a href="{{ path('class_room_new') }}">Create new</a>
+   </table>
+    {% if is_granted('ROLE_TEACHER') %}
+        <a href="{{ path('class_room_new') }}" class="btn btn-primary">Create new</a>
+    {%endif%}
+   </div>
+   
 {% endblock %}

@@ -4,7 +4,11 @@
 
 {% block body %}
     <h1>Edit Member</h1>
-
+    {% if error is defined %}
+    	<div class="alert alert-danger" role="alert">
+ 			{{error}}
+		</div>
+    {% endif %}
     {{ include('member/_form.html.twig', {'button_label': 'Update'}) }}
 
     <a href="{{ path('member_index') }}">back to list</a>

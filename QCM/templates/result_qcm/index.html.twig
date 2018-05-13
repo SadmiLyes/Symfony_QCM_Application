@@ -3,26 +3,20 @@
 {% block title %}ResultQcm{% endblock %}
 
 {% block body %}
-    <div class="container">
-        {{ dump(resultQcm.session.endDate) }}
-        <div class="row" style='height:90vh;'>
-            <div class="col-md-10 mx-auto my-auto">
-                <div class="card">
-                    <h5 class="card-header">Result for {{ resultQcm.quiz.name }}</h5>
-                    <div class="card-body">
-                        <h5 class="card-title">{{ resultQcm.session.startDate }}</h5>
-                        <h5 class="card-title">{{ resultQcm.session.endDate }}</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
+    <div class="container bg-dark p-3 mt-5 rounded">
+        {% if is_granted('ROLE_TEACHER') %}
+            {{ include('result_qcm/teacher.html.twig') }}
+        {% elseif is_granted('ROLE_STUDENT') %}
+           {{ include('result_qcm/student.html.twig') }}
+        {% else %}
+            <div class=" p-4 alert alert-warning text-center">
+                <h3 >
+                    You are not allowed to be here...
+                    <br>please log in
+                </h3>
+                    <hr>
+                <a href="{{ path('auth_login') }}" class="btn btn-success">Login</a>
             </div>
-
-        </div>
+        {% endif %}
+    </div>
 {% endblock %}

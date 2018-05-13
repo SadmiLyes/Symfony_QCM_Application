@@ -5,11 +5,14 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
+
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
-class User
+class User implements UserInterface
 {
     /**
      * @ORM\Id()
@@ -19,40 +22,57 @@ class User
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(name="firstname", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $firstName;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(name="lastname", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $lastName;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(name="birthday", type="date")
+     * @Assert\NotBlank()
      */
     private $birthday;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(name="address", type="string", length=255, nullable=true)
      */
     private $address;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(name="email", type="string", length=255, unique=true)
+     * @Assert\Email(checkMX=true)
      */
     private $email;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(name="gender", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $gender;
 
+
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Role", inversedBy="user", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\Column(name="password", type="string", length=255)
+     * @Assert\NotBlank()
      */
-    private $role;
+    private $password;
+
+    /**
+     * @ORM\Column(name="salt", type="string", length=255)
+     */
+    private $salt;
+
+    /**
+     * @ORM\Column(name="roles", type="array")
+     */
+    private $roles = array();
+
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\ClassRoom", mappedBy="author", orphanRemoval=true)
@@ -68,6 +88,10 @@ class User
      * @ORM\OneToOne(targetEntity="App\Entity\ResultQcm", mappedBy="student", cascade={"persist", "remove"})
      */
     private $resultQcm;
+
+    private $username;
+
+    private $role;
 
     public function __construct()
     {
@@ -133,6 +157,11 @@ class User
         return $this->email;
     }
 
+    public function getUsername(): ?string
+    {
+        return $this->email;
+    }
+
     public function setEmail(string $email): self
     {
         $this->email = $email;
@@ -152,17 +181,7 @@ class User
         return $this;
     }
 
-    public function getRole(): ?Role
-    {
-        return $this->role;
-    }
-
-    public function setRole(Role $role): self
-    {
-        $this->role = $role;
-
-        return $this;
-    }
+  
 
     /**
      * @return Collection|ClassRoom[]
@@ -244,9 +263,60 @@ class User
         return $this;
     }
 
+    public function eraseCredentials()
+    {
+    }
+
+    public function getPassword(): ?string
+    {
+        return $this->password;
+    }
+
+    public function setPassword(string $password): self
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    public function getSalt(): ?string
+    {
+        return $this->salt;
+    }
+
+    public function setSalt(string $salt): self
+    {
+        $this->salt = $salt;
+
+        return $this;
+    }
+
+    public function getRoles(): ?array
+    {
+        return $this->roles;
+    }
+
+    public function setRoles(array $roles): self
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    public function getRole(): ?string
+    {
+        return $this->role;
+    }
+
+    public function setRole(String $role): self
+    {
+        $this->role = $role;
+
+        return $this;
+    }
+
     public function __toString()
     {
-        // TODO: Implement __toString() method.
-        return '';
+        return "";
     }
 }

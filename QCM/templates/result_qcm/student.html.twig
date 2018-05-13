@@ -1,0 +1,56 @@
+
+
+{% if  result_qcms is defined %}
+<div class="container">
+    {% for result_qcm in result_qcms %}
+        {% set groupName = result_qcm.session.classRoom.getValues[0] %}
+        <div class="card " >
+            <div class="card-header ">
+                Quiz : {{ result_qcm.session.quiz.name }}
+            </div>
+
+            <div class="card-body px-5">
+                <div class="row mb-4">
+                    <div>
+                        <h5 class="card-title">Group : {{ groupName.name }}</h5>
+                        <p class="card-text">{{ result_qcm.session.quiz.description }}</p>
+                    </div>
+                    <div class="text-center alert alert-secondary col-lg-2 ml-auto">
+                        {% if date(result_qcm.session.endDate) > date("now") %}
+                            <mark>{{ result_qcm.mark }} / {{ result_qcm.session.quiz.maxPoints }}</mark>
+                        {% else %}
+                            <p class="alert">Mark is not available yet</p>
+                        {% endif %}
+                    </div>
+
+                </div>
+                <a href="#" class="btn btn-info">Correction</a>
+            </div>
+
+            <div class="card-footer text-muted">
+               <p>start At :
+                   <date>{{ result_qcm.session.startDate|date("Y F, jS \\a\\t g:ia") }}</date>
+               -
+                   endt At :
+                    <date>{{ result_qcm.session.endDate|date("Y F, jS \\a\\t g:ia") }}</date>
+                </p>
+            </div>
+        </div>
+
+    {% else %}
+
+            <div class="alert alert-danger">no records found</div>
+
+{% endfor %}
+
+{% else %}
+    <div class="col-lg-10 mx-auto">
+            <div class="card">
+                <h5 class="card-header alert alert-warning">Hum...</h5>
+            <div class="card-body">
+                <h5 class="card-title">Good news !</h5>
+                <p class="card-text">You have no quiz yet !...</p>
+            </div>
+            </div>
+    </div>
+{% endif %}

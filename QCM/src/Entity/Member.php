@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Entity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -17,19 +18,19 @@ class Member
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\ClassRoom", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity="App\Entity\ClassRoom", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $classRoom;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\User", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\Column(name="student_email", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $student;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean",nullable=true,options={"default" : false})
      */
     private $isConfirmed;
 
@@ -50,17 +51,17 @@ class Member
         return $this;
     }
 
-    public function getStudent(): ?User
+    public function getStudent(): ?string
     {
         return $this->student;
     }
 
-    public function setStudent(User $student): self
+    public function setStudent(string $student): self
     {
         $this->student = $student;
-
         return $this;
     }
+
 
     public function getIsConfirmed(): ?bool
     {

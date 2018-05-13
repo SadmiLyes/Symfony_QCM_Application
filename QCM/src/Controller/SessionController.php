@@ -1,5 +1,6 @@
 <?php
 namespace App\Controller;
+use App\Entity\ClassRoom;
 use App\Entity\Quiz;
 use App\Entity\ResultQcm;
 use App\Entity\Session;
@@ -8,6 +9,7 @@ use App\Entity\User;
 use App\Form\ExamType;
 use App\Form\SessionType;
 use App\Repository\SessionRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,32 +21,44 @@ class SessionController extends Controller
 {
     /**
      * @Route("/", name="session_index", methods="GET")
+     *
      */
     public function index(SessionRepository $sessionRepository): Response
     {
-        return $this->render('session/index.html.twig', ['sessions' => $sessionRepository->findAll()]);
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        return $this->render('session/index.html.twig', ['sessions' => $sessionRepository->findBy([
+            'author' => $this->getUser()
+        ])]);
     }
     /**
      * @Route("/new", name="session_new", methods="GET|POST")
+     * Security("has_role('ROLE_TEACHER')")
      */
     public function new(Request $request): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
         $session = new Session();
-        $user = $this->getDoctrine()
-            ->getRepository(User::class)
-            ->find(1);
+        $group = $this->getDoctrine()
+            ->getRepository(ClassRoom::class)
+            ->findBy([
+                'author' => $this->getUser()
+            ]);
+        $user = $this->getUser();
         $form = $this->createForm(SessionType::class, $session);
         $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-//            dump($form->getData());die;
             $session->setAuthor($user);
             $em->persist($session);
             $em->flush();
             return $this->redirectToRoute('home');
         }
+
         return $this->render('session/new.html.twig', [
             'session' => $session,
+            'group' => $group,
             'form' => $form->createView(),
         ]);
     }
@@ -53,6 +67,8 @@ class SessionController extends Controller
      */
     public function show(Session $session): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
         return $this->render('session/show.html.twig', ['session' => $session]);
     }
     /**
@@ -60,6 +76,8 @@ class SessionController extends Controller
      */
     public function edit(Request $request, Session $session): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
         $form = $this->createForm(SessionType::class, $session);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -76,6 +94,8 @@ class SessionController extends Controller
      */
     public function delete(Request $request, Session $session): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
         if ($this->isCsrfTokenValid('delete' . $session->getId(), $request->request->get('_token'))) {
             $em = $this->getDoctrine()->getManager();
             $em->remove($session);
@@ -88,22 +108,24 @@ class SessionController extends Controller
      */
     public function examAction(Request $request, $id)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
         $session = $this->getDoctrine()
             ->getRepository(Session::class)
             ->find($id);
+
         $resultQcmCheck = $this->getDoctrine()
             ->getRepository(ResultQcm::class)->findOneBy([
                 'session' => $session->getId(),
             ]);
+
         if (!!$resultQcmCheck){
             $this->addFlash('error', 'You can\'t pass the session twice !');
             return $this->redirectToRoute('result_qcm_show', [
                 'id' => $resultQcmCheck->getId()
             ]);
         }
-        $user = $this->getDoctrine()
-            ->getRepository(User::class)
-            ->find(2);
+        $user = $this->getUser();
         $resultQcm = new ResultQcm();
         $form = $this->createForm(ExamType::class, [
             'session' => $session
@@ -121,9 +143,7 @@ class SessionController extends Controller
             $resultQcm->setMark($mark);
             $emResultQcm->persist($resultQcm);
             $emResultQcm->flush();
-            return $this->redirectToRoute('result_qcm_show', [
-                'id' => $resultQcm->getId(),
-            ]);
+            return $this->redirectToRoute('home');
         }
         return $this->render('session/exam.html.twig', [
             'id' => $id,

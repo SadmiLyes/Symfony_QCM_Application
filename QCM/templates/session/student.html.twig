@@ -1,0 +1,39 @@
+<div class="container bg-dark p-3 my-5 rounded">
+    <div class=" py-1 text-center">
+        <h1 class="text-white">Your Sessions :</h1>
+    </div>
+    <table class="rounded primary-border table bg-light">
+        <thead>
+        <tr>
+            <th>Group Name</th>
+            <th>StartDate</th>
+            <th>EndDate</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for session in sessions %}
+            {% set group = session.classRoom.getValues[0] %}
+            <tr>
+                <td>{{ group.name }}</td>
+                <td>{{ session.startDate ? session.startDate|date('Y-m-d') : '' }}</td>
+                <td>{{ session.endDate ? session.endDate|date('Y-m-d') : '' }}</td>
+                <td>
+                    {% if date(session.startDate) >= date("now") and date(session.endDate) <= date("now") %}
+                        <a href="{{ path('session_exam', {'id': session.quiz.id }) }}">START NOW</a>
+                    {% else %}
+                        <a href="{{ path('session_show', {'id': session.id}) }}">show</a>
+                        <a href="{{ path('session_edit', {'id': session.id}) }}">edit</a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <hr>
+    <a class="btn btn-secondary" href="{{ path('session_new') }}">Create new</a>
+</div>

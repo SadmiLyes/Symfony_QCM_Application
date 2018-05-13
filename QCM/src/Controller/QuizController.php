@@ -6,6 +6,7 @@ use App\Entity\Quiz;
 use App\Entity\User;
 use App\Form\QuizType;
 use App\Repository\QuizRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,19 +19,22 @@ class QuizController extends Controller
 {
     /**
      * @Route("/", name="quiz_index", methods="GET")
+     *
      */
     public function index(QuizRepository $quizRepository): Response
     {
-        return $this->render('quiz/index.html.twig', ['quizzes' => $quizRepository->findAll()]);
+        return $this->render('quiz/index.html.twig', ['quizzes' => $quizRepository->findBy([
+            'author' => $this->getUser()
+        ])]);
     }
 
     /**
      * @Route("/new", name="quiz_new", methods="GET|POST")
+     * @Security("has_role('ROLE_TEACHER')")
      */
     public function new(Request $request): Response
     {
         $quiz = new Quiz();
-
 
         $form = $this->createForm(QuizType::class, $quiz);
         $form->handleRequest($request);

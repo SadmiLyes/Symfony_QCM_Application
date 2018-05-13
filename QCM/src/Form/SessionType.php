@@ -19,13 +19,13 @@ class SessionType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $user = strstr(ltrim(strstr($_SESSION["_sf2_attributes"]["_security_main"],"id"),"id\";:"),";",true);
+
         $builder
             ->add('startDate', DateTimeType::class)
             ->add('endDate',DateTimeType::class)
-            ->add('classRoom')
-            ->add('quiz')
         ;
-        $user = 1;
+
         $builder->addEventListener(FormEvents::POST_SET_DATA, function (FormEvent $event) use ($user){
             $form = $event->getForm();
             $formOption = [
@@ -41,11 +41,13 @@ class SessionType extends AbstractType
             $form = $event->getForm();
             $formOption = [
                 'class' => ClassRoom::class,
+                'label' => 'Group',
                 'query_builder' => function (EntityRepository $entityRepository) use ($user) {
                     return $entityRepository->createQueryBuilder('class_room')->select('class_room')->where('class_room.author = :author')->setParameter('author',$user);
                 },
-                'multiple' => true,
+                'choice_label' => 'name'
             ];
+
             $form->add('classRoom',EntityType::class,$formOption);
         });
 

@@ -3,9 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\ResultQcm;
+
 use App\Form\ResultDetailsType;
+use App\Form\EditResultQcmType;
 use App\Form\ResultQcmType;
 use App\Repository\ResultQcmRepository;
+use App\Repository\SessionRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,9 +22,23 @@ class ResultQcmController extends Controller
     /**
      * @Route("/", name="result_qcm_index", methods="GET")
      */
-    public function index(ResultQcmRepository $resultQcmRepository): Response
+    public function index(ResultQcmRepository $resultQcmRepository, SessionRepository $sessionRepository): Response
     {
-        return $this->render('result_qcm/index.html.twig', ['result_qcms' => $resultQcmRepository->findAll()]);
+        if ($this->get('security.authorization_checker')->isGranted('ROLE_TEACHER')) {
+            $params = $sessionRepository->findBy(['author' => $this->getUser()]);
+            $params = array_filter(array_map(function($session){ return $session->getResultQcm(); },$params), function ($item){ return $item; });
+            $params = [
+                'result_qcms' => $params
+                ];
+        } elseif ($this->get('security.authorization_checker')->isGranted('ROLE_STUDENT')) {
+            $params = $resultQcmRepository->findBy([
+                'student' => $this->getUser()
+            ]);
+            $params = [
+                'result_qcms' => $params
+            ];
+        }
+        return $this->render('result_qcm/index.html.twig', $params);
     }
 
     /**
@@ -59,7 +76,7 @@ class ResultQcmController extends Controller
      */
     public function show(ResultQcm $resultQcm): Response
     {
-        return $this->render('result_qcm/show.html.twig', ['resultQcm' => $resultQcm]);
+        return $this->render('result_qcm/show.html.twig', ['resultQcm' => '']);
     }
 
 
@@ -68,7 +85,7 @@ class ResultQcmController extends Controller
      */
     public function edit(Request $request, ResultQcm $resultQcm): Response
     {
-        $form = $this->createForm(ResultQcmType::class, $resultQcm);
+        $form = $this->createForm(EditResultQcmType::class, $resultQcm);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

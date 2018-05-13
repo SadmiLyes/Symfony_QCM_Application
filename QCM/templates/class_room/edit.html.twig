@@ -3,11 +3,19 @@
 {% block title %}Edit ClassRoom{% endblock %}
 
 {% block body %}
-    <h1>Edit ClassRoom</h1>
+    <div class="container bg-light mt-5 card p-4 col-lg-4">
+        <h3 class="text-center">
+            Edit group info
+        </h3>
+        <hr>
+        {{ include('class_room/_form.html.twig', {'button_label': 'Update'}) }}
+        <h5 class="my-3 ">Delete the group :</h5>
+        <div class="mx-auto">
+            {{ include('class_room/_delete_form.html.twig') }}
+        </div>
+        <hr>
 
-    {{ include('class_room/_form.html.twig', {'button_label': 'Update'}) }}
+        <a class="btn btn-secondary" href="{{ path('class_room_index') }}">back to list</a>
 
-    <a href="{{ path('class_room_index') }}">back to list</a>
-
-    {{ include('class_room/_delete_form.html.twig') }}
+    </div>
 {% endblock %}

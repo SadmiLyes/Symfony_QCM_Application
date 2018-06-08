@@ -35,7 +35,7 @@ security:
             form_login:
                 login_path: login
                 check_path: login_check
-                username_parameter: _email
+                  username_parameter: _email
             logout:
                 path:       logout
                 target:     login
@@ -51,6 +51,7 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/user, roles: ROLE_TEACHER }
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
